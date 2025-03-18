@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.tables.min.css" />
+
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+	<div class="innerAll spacing-x2">
+		<div class="row hide-to-print" style="margin-bottom: 10px;">
+			<button type="button" id="print-adv-form" class="btn btn-info"><i class="fa fa-print"></i> Imprimir</button>
+		</div>
+		<div class="row">
+			<table id="" class="table table-condensed"> 
+				<tbody>
+					<tr> 
+						<td class="text-left"><img src="js/logo.png" id="logo" width="150px" height="60px" /></td> 
+						<td class="text-left"></td> 
+						<td class="text-center strong" colspan="2">Registro: </td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+					</tr>
+					<tr> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-center strong name" colspan="2"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left">29-06-2019</td> 
+					</tr>
+					<tr> 
+						<td class="text-left strong">Cliente: </td> 
+						<td class="text-left">ENDE CORPORATION</td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+					</tr>
+					<tr> 
+						<td class="text-left strong">Proyecto: </td> 
+						<td class="text-left">PLANTA SOLAR FOTOVOLTAICA ORURO</td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-right strong">Fecha Emisión: </td> 
+						<td class="text-left"></td> 
+					</tr>
+					<tr> 
+						<td class="text-left strong">Ubicación: </td> 
+						<td class="text-left">ANCOTANGA/ORURO</td> 
+						<td class="text-left strong">Contratista: </td> 
+						<td class="text-left strong">EMINSA CONSTRUCCIONES E INGENIERIA</td> 
+						<td class="text-right strong">Fecha Actualización: </td> 
+						<td class="text-left"></td> 
+					</tr>
+					<tr> 
+						<td class="text-left strong">Disciplina: </td> 
+						<td class="text-left">OBRAS CIVILES</td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-right strong">Rev. </td> 
+						<td class="text-left">00</td> 
+					</tr>
+					<tr> 
+						<td class="text-left strong">Obra: </td> 
+						<td class="text-left strong">CONSTRUCCION DE EDIFICIO DE CONTROL DE SUBESTACION</td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+					</tr>
+					<tr> 
+						<td class="text-left strong">Documento: </td> 
+						<td class="text-left name"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+					</tr>
+					<tr> 
+						<td class="text-left strong">Periodo: </td> 
+						<td class="text-left date-ini-end"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"></td> 
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- end div class="row" -->
+		<hr class="separator">
+		<div class="row">
+			<table id="advanced-form-table" class="table table-condensed"> 
+				<thead>
+					<tr>
+						<th class="text-center">Item</th>
+						<th>Descripcion</th>
+						<th class="text-center">Und.</th>
+						<th colspan="3" class="text-center">
+							<span class="label label-inverse label-stroke">Cantidades de Contrato</span>
+						</th> 
+						<th colspan="3" class="text-center"> 
+							<span class="label label-inverse label-stroke">Avance Anterior Acumulado</span>
+						</th> 
+						<th colspan="3" class="text-center"> 
+							<span class="label label-inverse label-stroke">Avance Presente Periodo</span>
+						</th> 
+						<th colspan="3" class="text-center"> 
+							<span class="label label-inverse label-stroke">Avance Acumulado a la Fecha</span>
+						</th> 
+						<th colspan="3" class="text-center"> 
+							<span class="label label-inverse label-stroke">Saldo por Ejecutar</span>
+						</th>
+					</tr>
+					<tr>
+						<th></th> 
+						<th></th> 
+						<th></th> 
+						<th class="text-right line-left-s1">Cantidad</th> 
+						<th class="text-right">Precio Unit.</th> 
+						<th class="text-right">Subtotal</th> 
+						<th class="text-right line-left-s1">Cantidad</th> 
+						<th class="text-right">Financiero</th> 
+						<th class="text-center">Por. %</th> 
+						<th class="text-center line-left-s1">Cantidad</th> 
+						<th class="text-right">Financiero</th> 
+						<th class="text-center">Por. %</th> 
+						<th class="text-right line-left-s1">Cantidad</th> 
+						<th class="text-right">Financiero</th> 
+						<th class="text-center">Por. %</th> 
+						<th class="text-right line-left-s1">Cantidad</th> 
+						<th class="text-right">Financiero</th> 
+						<th class="text-center">Por. %</th>
+					</tr>
+				</thead>
+				<tbody id="advanced-form-rows"></tbody>
+			</table>
+		</div><!-- end div class="row" -->
+		<hr class="separator">
+		<!-- Bottom TOTAL Tables -->
+		<div class="row"> 
+			<div class="col-md-5">
+				<span class="label label-inverse label-stroke">Resumen del Certificado</span>
+				<table id="res-cert-table" class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Detalle</th>
+							<th class="text-center">Moneda</th>
+							<th class="text-right">Monto</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Importe Acumulado a la Fecha</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right imp-acu-fecha"></td>
+						</tr>
+						<tr>
+							<td>Importe del Presente Periodo</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right imp-pres-per"></td>
+						</tr>
+						<tr>
+							<td>Importe Porcentual a la Fecha</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right imp-porc-fecha"></td>
+						</tr>
+					</tbody>
+				</table>			
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<span class="label label-inverse label-stroke">Retenciones de Garantia</span>
+				<table id="ret-gar-table" class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Detalle</th>
+							<th class="text-center">Moneda</th>
+							<th class="text-right">Monto</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+									<td>Retención al Periodo Anterior (10%)</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right ret-per-ant"></td>
+								</tr>
+								<tr>
+									<td>Retención a este Periodo (10%)</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right ret-pres-per"></td>
+								</tr>
+								<tr>
+									<td class="text-right strong">Total Retenciones</td>
+									<td class="text-center proj-currency strong"></td>
+									<td class="text-right tot-ret strong"></td>
+								</tr>
+					</tbody>
+				</table>			
+			</div>
+		</div><!-- end div class="row" -->
+		<hr class="separator">
+		<div class="row"> 
+			<div class="col-md-5">
+				<span class="label label-inverse label-stroke">Información de la Facturación</span>
+				<table id="info-fact-table" class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Detalle</th>
+							<th class="text-center">Moneda</th>
+							<th class="text-right">Monto</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Importe del Presente Periodo</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right imp-pres-per"></td>
+						</tr>
+						<tr>
+							<td>Retención Garantia</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right ret-garan"></td>
+						</tr>
+						<tr>
+							<td>Pago Anticipo</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right pago-antic"></td>
+						</tr>
+						<tr>
+							<td class="text-right strong">Total Certificación</td>
+							<td class="text-center proj-currency strong"></td>
+							<td class="text-right tot-cert strong"></td>
+						</tr>
+						<tr>
+							<td class="text-right strong">Total Facturación</td>
+							<td class="text-center proj-currency strong"></td>
+							<td class="text-right tot-fact strong"></td>
+						</tr>
+					</tbody>
+				</table>			
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<span class="label label-inverse label-stroke">Estado de la Situación a Fecha</span>
+				<table id="est-sit-table" class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Detalle</th>
+							<th class="text-center">Moneda</th>
+							<th class="text-right">Monto</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+									<td>Monto Contractual</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right mont-contra"></td>
+								</tr>
+								<tr>
+									<td>Liquido Pagable al Periodo Anterior</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right liq-per-ant"></td>
+								</tr>
+								<tr>
+									<td>Liquido Pagable Presente Periodo</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right liq-pres-per"></td>
+								</tr>
+								<tr>
+									<td>Liquido Pagable Acumulado</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right liq-acum"></td>
+								</tr>
+					</tbody>
+				</table>			
+			</div>
+		</div><!-- end div class="row" -->
+		<hr class="separator">
+		<div class="row"> 
+			<div class="col-md-5">
+				<span class="label label-inverse label-stroke">Descuentos por Anticipos</span>
+				<table id="info-fact-table" class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Detalle</th>
+							<th class="text-center">Moneda</th>
+							<th class="text-right">Monto</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Anticipo Otorgado</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right antic-otorg"></td>
+						</tr>
+						<tr>
+							<td>Pago Anticipo Anterior</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right antic-anter"></td>
+						</tr>
+						<tr>
+							<td>Descuento en este Periodo</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right desc-este-per"></td>
+						</tr>
+						<tr>
+							<td>Pago Acumulado a la Fecha</td>
+							<td class="text-center proj-currency"></td>
+							<td class="text-right pago-acum-fecha"></td>
+						</tr>
+						<tr>
+							<td class="text-right strong">Saldo a Amortizar</td>
+							<td class="text-center proj-currency strong"></td>
+							<td class="text-right saldo-amort strong"></td>
+						</tr>
+					</tbody>
+				</table>			
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<span class="label label-inverse label-stroke">Pagos por Planillas</span>
+				<table id="est-sit-table" class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Detalle</th>
+							<th class="text-center">Moneda</th>
+							<th class="text-right">Monto</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+									<td>Planilla N1</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right plan-1"></td>
+								</tr>
+								<tr>
+									<td>Planilla N2</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right plan-2"></td>
+								</tr>
+								<tr>
+									<td>Planilla N3</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right plan-3"></td>
+								</tr>
+								<tr>
+									<td>Planilla N4</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right plan-4"></td>
+								</tr>
+								<tr>
+									<td>Planilla N5</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right plan-5"></td>
+								</tr>
+								<tr>
+									<td>Planilla N6</td>
+									<td class="text-center proj-currency"></td>
+									<td class="text-right plan-6"></td>
+								</tr>
+								<tr>
+									<td class="text-right strong">Total Pagado</td>
+									<td class="text-center proj-currency strong"></td>
+									<td class="text-right tot-pagado strong"></td>
+								</tr>
+					</tbody>
+				</table>			
+			</div>
+		</div><!-- end div class="row" -->
+		<hr class="separator">
+		<div class="row">
+			<table id="" class="print-no-border table table-condensed"> 
+				<tbody >
+					<tr> 
+						<td class="text-left"><span class="label label-inverse label-stroke">Solicitado Por:</span></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"><span class="label label-inverse label-stroke">Revisado Por:</span></td> 
+						<td class="text-left"></td> 
+						<td class="text-left"><span class="label label-inverse label-stroke">Autorizado Por:</span></td> 
+					</tr>
+					<tr></tr>
+					<tr> 
+						<td class="text-center">_______________________________</td> 
+						<td class="text-left"></td> 
+						<td class="text-center">_______________________________</td> 
+						<td class="text-left"></td> 
+						<td class="text-center">_______________________________</td> 
+					</tr>
+					<tr> 
+						<td class="text-center">Nombre y Apellido </br>Cargo </br>Empresa </br>Sucursal</td> 
+						<td class="text-left"></td> 
+						<td class="text-center">Nombre y Apellido </br>Cargo </br>Empresa </br>Sucursal</td> 						
+						<td class="text-left"></td> 
+						<td class="text-center">Nombre y Apellido </br>Cargo </br>Empresa </br>Sucursal</td> 
+					</tr>
+					<tr></tr>
+					<tr> 
+						<td class="text-center"></td> 
+						<td class="text-left"></td> 
+						<td class="text-center">_______________________________</td> 
+						<td class="text-left"></td> 
+						<td class="text-center"></td> 
+					</tr>
+					<tr> 
+						<td class="text-center"></td> 
+						<td class="text-left"></td> 
+						<td class="text-center">Nombre y Apellido </br>Cargo </br>Empresa </br>Sucursal</td> 												
+						<td class="text-left"></td> 
+						<td class="text-center"></td> 
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- end div class="row" -->
+
+
+	</div><!-- end "innerAll spacing-x2" -->
+
+
+	<!--Scripts Needed-->
+	<script>
+		$.getScript('js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3');
+		$.getScript('js/modules/print-progress-form.js');
+	</script>
+
+</body>
+</html>

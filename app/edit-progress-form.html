@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.widgets.min.css" />
+	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.tables.min.css" />
+
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+	<h1 class="bg-white content-heading border-bottom">Editar Planilla de Avance</h1>
+	<div class="innerAll spacing-x2">
+		<div class="widget widget-inverse">
+			<div class="widget widget-inverse">
+				<div class="widget-head"><h4 class="heading">General</h4></div>
+				<div class="widget-body">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-5">
+								<label class="control-label">Documento:</label>
+								<div class="input-group">
+									<input type="text" id="doc-name" name="doc-name" readonly class="form-control" />
+									<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<label class="control-label">Periodo Desde:</label>
+								<div class="input-group">
+									<input type="text" id="date-ini" name="date-ini" placeholder="dd-mm-aaaa" class="form-control datepickerCustom" />
+									<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-calendar"></i></span>
+									</div>
+							</div>
+							<div class="col-md-2">
+									<label class="control-label">Hasta:</label>
+									<div class="input-group">
+									<input type="text" id="date-end" name="date-end" placeholder="dd-mm-aaaa" class="form-control datepickerCustom" />
+									<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-calendar"></i></span>
+								</div>
+							</div>
+							<div class="col-md-3" style="margin-top: 25px;">							
+								<button type="button" id="save-adv-form" class="btn btn-primary"><i class="fa fa-check"></i> Guardar Planilla</button>
+								<button type="button" id="preview-adv-form" class="btn btn-info"><i class="fa fa-print"></i></button>
+							</div>
+						</div>
+					</div><!-- end div class="row" -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="adv-form-cont"></div>
+				</div>
+			</div><!-- end div class="row" -->
+			<div class="widget widget-inverse">
+				<div class="widget-head"><h4 class="heading">TOTALES</h4></div>
+				<div class="widget-body">
+					<div class="row">
+						 <table id="advanced-form-table" class="table table-condensed"> 
+							 <thead>
+									<tr> 
+										<th></th> 
+										<th></th> 
+										<th></th> 
+										<th colspan="3" class="text-center"> 
+												<span class="label label-inverse label-stroke">Cantidades de Contrato</span> 
+										</th> 
+										<th colspan="3" class="text-center"> 
+												<span class="label label-info label-stroke">Avance Anterior Acumulado</span> 
+										</th> 
+										<th colspan="3" class="text-center"> 
+												<span class="label label-success label-stroke">Avance Presente Periodo</span> 
+										</th> 
+										<th colspan="3" class="text-center"> 
+												<span class="label label-info label-stroke">Avance Acumulado a la Fecha</span> 
+										</th> 
+										<th colspan="3" class="text-center"> 
+												<span class="label label-warning label-stroke">Saldo por Ejecutar</span> 
+										</th> 
+								 	</tr>
+									<tr> 
+										<th class="text-center">Item</th> 
+										<th>Descripcion</th> 
+										<th class="text-center">Und.</th> 
+										<th class="text-right line-left-s1">Cantidad</th> 
+										<th class="text-right">Precio Unit.</th> 
+										<th class="text-right">Subtotal</th> 
+										<th class="text-right line-left-s2">Cantidad</th> 
+										<th class="text-right">Financiero</th> 
+										<th class="text-center">Por. %</th> 
+										<th class="text-center line-left-s3">Cantidad</th> 
+										<th class="text-right">Financiero</th> 
+										<th class="text-center line-right-s3">Por. %</th> 
+										<th class="text-right">Cantidad</th> 
+										<th class="text-right">Financiero</th> 
+										<th class="text-center line-right-s4">Por. %</th> 
+										<th class="text-right">Cantidad</th> 
+										<th class="text-right">Financiero</th> 
+										<th class="text-center line-right-s5">Por. %</th> 
+									</tr>
+							 	</thead>
+							 	<tbody>
+									<tr> 
+										<td class="text-center"></td> 
+										<td></td> 
+										<td class="text-center strong">TOTALES (Bs):</td> 
+										<td class="text-right line-left-s1"></td> 
+										<td class="text-right"></td> 
+										<td class="text-right strong tot-proj"></td> 
+										<td class="text-right line-left-s2"></td> 
+										<td class="text-right strong tot-s2"></td> 
+										<td class="text-center strong perc-s2"></td> 
+										<td class="text-center line-left-s3"></td> 
+										<td class="text-right strong tot-s3"></td> 
+										<td class="text-center line-right-s3 strong perc-s3"></td> 
+										<td class="text-right"></td> 
+										<td class="text-right strong tot-s4"></td> 
+										<td class="text-center line-right-s4 strong perc-s4"></td> 
+										<td class="text-right"></td> 
+										<td class="text-right strong tot-s5"></td> 
+										<td class="text-center line-right-s5 strong perc-s5"></td> 
+									</tr>
+								</tbody>
+							</table>
+					</div><!-- end div class="row" -->
+					<hr class="separator">
+					<div class="row"> 
+						<div class="col-md-5">
+							<span class="label label-info">Resumen del Certificado</span>
+							<table id="res-cert-table" class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Detalle</th>
+										<th class="text-center">Moneda</th>
+										<th class="text-right">Monto</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Importe Acumulado a la Fecha</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right imp-acu-fecha"></td>
+									</tr>
+									<tr>
+										<td>Importe del Presente Periodo</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right imp-pres-per"></td>
+									</tr>
+									<tr>
+										<td>Importe Porcentual a la Fecha</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right imp-porc-fecha"></td>
+									</tr>
+								</tbody>
+							</table>			
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-6">
+							<span class="label label-info">Retenciones de Garantia</span>
+							<table id="ret-gar-table" class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Detalle</th>
+										<th class="text-center">Moneda</th>
+										<th class="text-right">Monto</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+												<td>Retención al Periodo Anterior (10%)</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right ret-per-ant"></td>
+											</tr>
+											<tr>
+												<td>Retención a este Periodo (10%)</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right ret-pres-per"></td>
+											</tr>
+											<tr>
+												<td class="text-right strong">Total Retenciones</td>
+												<td class="text-center proj-currency strong"></td>
+												<td class="text-right tot-ret strong"></td>
+											</tr>
+								</tbody>
+							</table>			
+						</div>
+					</div><!-- end div class="row" -->
+					<hr class="separator">
+					<div class="row"> 
+						<div class="col-md-5">
+							<span class="label label-info">Información de la Facturación</span>
+							<table id="info-fact-table" class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Detalle</th>
+										<th class="text-center">Moneda</th>
+										<th class="text-right">Monto</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Importe del Presente Periodo</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right imp-pres-per"></td>
+									</tr>
+									<tr>
+										<td>Retención Garantia</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right ret-garan"></td>
+									</tr>
+									<tr>
+										<td>Pago Anticipo</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right pago-antic"></td>
+									</tr>
+									<tr>
+										<td class="text-right strong">Total Certificación</td>
+										<td class="text-center proj-currency strong"></td>
+										<td class="text-right tot-cert strong"></td>
+									</tr>
+									<tr>
+										<td class="text-right strong">Total Facturación</td>
+										<td class="text-center proj-currency strong"></td>
+										<td class="text-right tot-fact strong"></td>
+									</tr>
+								</tbody>
+							</table>			
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-6">
+							<span class="label label-info">Estado de la Situación a Fecha</span>
+							<table id="est-sit-table" class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Detalle</th>
+										<th class="text-center">Moneda</th>
+										<th class="text-right">Monto</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+												<td>Monto Contractual</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right mont-contra"></td>
+											</tr>
+											<tr>
+												<td>Liquido Pagable al Periodo Anterior</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right liq-per-ant"></td>
+											</tr>
+											<tr>
+												<td>Liquido Pagable Presente Periodo</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right liq-pres-per"></td>
+											</tr>
+											<tr>
+												<td>Liquido Pagable Acumulado</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right liq-acum"></td>
+											</tr>
+								</tbody>
+							</table>			
+						</div>
+					</div><!-- end div class="row" -->
+					<hr class="separator">
+					<div class="row"> 
+						<div class="col-md-5">
+							<span class="label label-info">Descuentos por Anticipos</span>
+							<table id="info-fact-table" class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Detalle</th>
+										<th class="text-center">Moneda</th>
+										<th class="text-right">Monto</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Anticipo Otorgado</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right antic-otorg"></td>
+									</tr>
+									<tr>
+										<td>Pago Anticipo Anterior</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right antic-anter"></td>
+									</tr>
+									<tr>
+										<td>Descuento en este Periodo</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right desc-este-per"></td>
+									</tr>
+									<tr>
+										<td>Pago Acumulado a la Fecha</td>
+										<td class="text-center proj-currency"></td>
+										<td class="text-right pago-acum-fecha"></td>
+									</tr>
+									<tr>
+										<td class="text-right strong">Saldo a Amortizar</td>
+										<td class="text-center proj-currency strong"></td>
+										<td class="text-right saldo-amort strong"></td>
+									</tr>
+								</tbody>
+							</table>			
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-6">
+							<span class="label label-info">Pagos por Planillas</span>
+							<table id="est-sit-table" class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Detalle</th>
+										<th class="text-center">Moneda</th>
+										<th class="text-right">Monto</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+												<td>Planilla N1</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right plan-1"></td>
+											</tr>
+											<tr>
+												<td>Planilla N2</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right plan-2"></td>
+											</tr>
+											<tr>
+												<td>Planilla N3</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right plan-3"></td>
+											</tr>
+											<tr>
+												<td>Planilla N4</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right plan-4"></td>
+											</tr>
+											<tr>
+												<td>Planilla N5</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right plan-5"></td>
+											</tr>
+											<tr>
+												<td>Planilla N6</td>
+												<td class="text-center proj-currency"></td>
+												<td class="text-right plan-6"></td>
+											</tr>
+											<tr>
+												<td class="text-right strong">Total Pagado</td>
+												<td class="text-center proj-currency strong"></td>
+												<td class="text-right tot-pagado strong"></td>
+											</tr>
+								</tbody>
+							</table>			
+						</div>
+					</div><!-- end div class="row" -->
+				</div>
+			</div>
+		</div><!-- end div class="widget widget-inverse" -->
+	</div>
+
+	<!--Scripts Needed-->
+	<script>
+		$.getScript('js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3');
+		$.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/js/bootstrap-datepicker.js?v=v1.2.3');
+		$.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/custom/js/bootstrap-datepicker.init.js?v=v1.2.3');
+		$.getScript('js/modules/edit-progress-form.js');
+	</script>
+
+</body>
+</html>

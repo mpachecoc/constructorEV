@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.tables.min.css" />
+
+	<!--[if lt IE 9]>
+	<!--<link rel="stylesheet" href="js/assets/components/library/bootstrap/css/bootstrap.min.css" />-->
+	<!--<![endif]&ndash;&gt;-->
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+	<h1 class="content-heading bg-white border-bottom">Lista de Proyectos</h1>
+	<div class="innerAll spacing-x2">
+		<div class="widget widget-inverse">
+			<div class="widget-head">
+				<h4 class="heading">Lista de Proyectos</h4>
+			</div>
+			<div class="widget-body padding-bottom-none">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Cod.</th>
+							<th>Nombre</th>
+							<th>Progreso</th>
+							<th class="center">Fecha Elaboración</th>
+							<th class="center">Fecha Presupuesto</th>
+							<th class="center">Fecha Final</th>
+							<th class="center">Dias Calendario</th>
+							<th class="center">Moneda</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="project-rows"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!--Scripts Needed-->
+	<script>
+        $.getScript('js/modules/list-projects.js');
+	</script>
+</body>
+</html>

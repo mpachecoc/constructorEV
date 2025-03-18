@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+	<h1 class="bg-white content-heading border-bottom">Datos Específicos</h1>
+	<div class="innerAll spacing-x2">
+		<div class="widget widget-tabs widget-tabs-gray border-bottom-none">
+			<div class="widget-head">
+				<ul>
+					<li class="active"><a class="glyphicons edit" href="#specific-data" data-toggle="tab"><i></i>Datos Específicos</a></li>
+				</ul>
+			</div>
+			<div class="widget-body">
+				<form id="specific-data-form" class="form-horizontal">
+					<div class="tab-content">
+						<div class="tab-pane active" id="specific-data">
+							<div class="row">
+								<div class="col-md-7">
+									<div class="form-group">
+										<label class="col-md-8 control-label">Tipo de Cambio (Bs. / $us.)</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="exchange_rate" placeholder="0.00" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<hr class="separator">
+									<div class="form-group">
+										<label class="col-md-8 control-label">1. Costo de Herramientas sobre Mano de Obra</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="costo_herramientas" name="costo_herramientas" placeholder="Ej. 0.00" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">%</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-8 control-label">2. Beneficios Sociales para Mano de Obra</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="beneficios_sociales" name="beneficios_sociales" placeholder="0.00" value="0" readonly class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Calculado de 'Beneficios Sociales'"><i class="fa">%</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-8 control-label">3. Gastos Generales</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="gastos_generales" name="gastos_generales" placeholder="Ej. 0.00" class="form-control calc-fdp" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">%</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-8 control-label">4. Utilidad sobre Costo Directo</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="utilidad_costo_directo" name="utilidad_costo_directo" placeholder="Ej. 0.00" class="form-control calc-fdp" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">%</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-8 control-label">5. Impuesto al Valor Agregado (IVA)</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="iva" name="iva" placeholder="Ej. 0.00" class="form-control calc-fdp calc-sfact" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">%</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-8 control-label">6. Impuesto a la Transacción (IT)</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="it" name="it" placeholder="Ej. 0.00" class="form-control calc-fdp calc-sfact" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">%</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-8 control-label">7. Factor de Paso</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="factor_de_paso" name="factor_de_paso" placeholder="0.00" readonly class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="SUM (3-6)"><i class="fa">%</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-8 control-label">8. Factor de Reducción de Compra sin Factura</label>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="compra_sin_factura" name="compra_sin_factura" placeholder="0.00" readonly class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="100-(5)-(6)"><i class="fa">%</i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="separator line bottom"></div>
+							<div class="separator top">
+								<button type="button" id="save-specific-data" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+								<button type="button" id="cancel-specific-data" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--Scripts Needed-->
+	<script>
+        $.getScript('js/modules/specific-data.js');
+        $.getScript('js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3');
+	</script>
+
+</body>
+</html>

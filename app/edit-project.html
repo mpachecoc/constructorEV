@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+	<h1 class="bg-white content-heading border-bottom">Editar Proyecto</h1>
+	<div class="innerAll spacing-x2">
+		<div class="widget widget-tabs widget-tabs-gray border-bottom-none">
+			<div class="widget-head">
+				<ul>
+					<li class="active"><a class="glyphicons edit" href="#initial-data" data-toggle="tab"><i></i>Datos Iniciales</a></li>
+				</ul>
+			</div>
+			<div class="widget-body">
+				<form id="edit-proj-form" class="form-horizontal">
+					<div class="tab-content">
+						<div class="tab-pane active" id="initial-data">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="col-md-4 control-label">Código</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="edit-proj-id" name="id" disabled class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Nombre del Proyecto</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="edit-proj-name" name="name" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Ubicación</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="edit-proj-location" name="location" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Fecha de Elaboración</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="edit-proj-elab_date" name="elaboration_date" placeholder="dd/mm/aaaa" class="form-control datepickerCustom" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-calendar"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Fecha de Entrega Presupuesto</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="edit-proj-presup_date" name="presup_date" placeholder="dd/mm/aaaa" class="form-control datepickerCustom" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-calendar"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Fecha Fin de Proyecto</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="edit-proj-end_date" name="end_date" placeholder="dd/mm/aaaa" class="form-control datepickerCustom" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-calendar"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Dias Calendario Proyecto</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="edit-proj-cal_days" name="calendar_days" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Moneda</label>
+										<div class="col-md-3">
+											<select id="edit-proj-currency" name="currency" class="form-control">
+												<option>Bolivianos</option>
+												<option>Dolares</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Número de Contrato/Licitación</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="edit-proj-contract" name="contract_num" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="separator line bottom"></div>
+							<div class="separator top">
+								<button type="button" id="save-edited-proj" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+								<button type="button" id="cancel-edited-proj" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--Scripts Needed-->
+	<script>
+				$.getScript('js/modules/edit-project.js');
+        $.getScript('js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3');
+        $.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/js/bootstrap-datepicker.js?v=v1.2.3');
+				$.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/custom/js/bootstrap-datepicker.init.js?v=v1.2.3');
+	</script>
+
+</body>
+</html>

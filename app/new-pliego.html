@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="js/assets/components/modules/admin/forms/elements/jasny-fileupload/assets/css/fileupload.css" />
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+		<!--<![endif]&ndash;&gt;-->
+		<script>
+			// Charts
+			// $.getScript( "js/assets/components/library/jquery-ui/js/jquery-ui.min.js?v=v1.2.3" );
+			// $.getScript( "js/assets/components/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js?v=v1.2.3" );
+		</script>
+</head>
+<body>
+	<h1 class="bg-white content-heading border-bottom">Mi Cuenta</h1>
+	<div class="innerAll spacing-x2">
+		<div class="widget widget-tabs widget-tabs-gray border-bottom-none">
+			<div class="widget-head">
+				<ul>
+					<li class="active"><a class="glyphicons more_windows" href="#cover" data-toggle="tab"><i></i>Caratula</a></li>
+					<li><a class="glyphicons list" href="#indice" data-toggle="tab"><i></i>Indice</a></li>
+					<li><a class="glyphicons file" href="#general" data-toggle="tab"><i></i>Objetivos y Alcance</a></li>
+					<li><a class="glyphicons file" href="#propon-elegibles" data-toggle="tab"><i></i>Proponentes Elegibles</a></li>
+					<li><a class="glyphicons picture" href="#ubicacion" data-toggle="tab"><i></i>Ubicación</a></li>
+					<li><a class="glyphicons charts" href="#item-esp-tecnicas" data-toggle="tab"><i></i>Items de Esp. Técnicas</a></li>
+					<li><a class="glyphicons picture" href="#ssma" data-toggle="tab"><i></i>Gestión Sistema SSMA</a></li>
+					<li><a class="glyphicons file" href="#generate-pliego" data-toggle="tab"><i></i>Generar Pliego</a></li>
+				</ul>
+			</div>
+			<div class="widget-body">
+				<form class="form-horizontal">
+					<div class="tab-content">
+
+						<div class="tab-pane active" id="cover">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="col-md-4 control-label">Proyecto</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="proj_name" name="proj_name" placeholder="" readonly class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<!-- <div class="form-group">
+										<label class="col-md-4 control-label">Informe Semanal Nro.</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="report_num" name="report_num" placeholder="" readonly class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Nro. de Contrato</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="contract_num" name="contract_num" placeholder="" readonly class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div> -->
+									<div class="form-group">
+										<label class="col-md-4 control-label">Fecha de Elaboración</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" name="elaboration_date" placeholder="dd-mm-aaaa" class="form-control datepickerCustom" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-calendar"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Fecha Inicio</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" name="ini_date" placeholder="dd-mm-aaaa" class="form-control datepickerCustom" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-calendar"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Fecha Fin</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" name="end_date" placeholder="dd-mm-aaaa" class="form-control datepickerCustom" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-calendar"></i></span>
+											</div>
+										</div>
+									</div>
+                  <div class="form-group">
+										<label class="col-md-4 control-label">Duración del Proyecto</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="" name="" placeholder="Ej. 0 días/meses" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><!-- end row -->
+							<div class="separator line bottom"></div>
+							<div class="separator top">
+								<button type="button" id="" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+								<button type="button" id="" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button>
+							</div>
+						</div><!-- end tab-pane -->
+
+						<div class="tab-pane" id="indice">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="col-md-4 control-label">Índice</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<textarea id="indice" name="indice" rows="10" cols="40" class="form-control">[Autogenerado]</textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><!-- end row -->
+							<div class="separator line bottom"></div>
+							<div class="separator top">
+								<button type="button" id="" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+								<button type="button" id="" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button>
+							</div>
+						</div><!-- end tab-pane -->
+
+						<div class="tab-pane" id="general">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="col-md-4 control-label">Objetivos Generales</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<textarea id="" name="" rows="10" cols="40" class="form-control"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><!-- end row -->
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="col-md-4 control-label">Alcance</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<textarea id="" name="" rows="10" cols="40" class="form-control"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><!-- end row -->
+							<div class="separator line bottom"></div>
+							<div class="separator top">
+								<button type="button" id="" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+								<button type="button" id="" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button>
+							</div>
+						</div><!-- end tab-pane -->
+
+            <div class="tab-pane" id="propon-elegibles">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="col-md-4 control-label">Experiencia General</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="" name="" placeholder="Ej. 0 años/proyectos/monetario" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Experiencia Específica</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="" name="" placeholder="Ej. 0 años/proyectos/monetario" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+                  
+								</div>
+							</div><!-- end row -->
+							<div class="separator line bottom"></div>
+							<div class="separator top">
+								<button type="button" id="" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+								<button type="button" id="" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button>
+							</div>
+						</div><!-- end tab-pane -->
+            
+            <div class="tab-pane" id="ubicacion">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="col-md-4 control-label">Latitud</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="" name="" placeholder="-16.531188" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Longitud</label>
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="text" id="" name="" placeholder="-68.381021" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Mapa</label>
+										<div class="col-md-8">
+                      <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7649.779513666779!2d-68.39005885415855!3d-16.5316623368673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbo!4v1740492769816!5m2!1sen!2sbo" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                      </iframe>
+										</div>
+									</div>
+                  
+								</div>
+							</div><!-- end row -->
+							<div class="separator line bottom"></div>
+							<div class="separator top">
+								<button type="button" id="" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+								<button type="button" id="" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button>
+							</div>
+						</div><!-- end tab-pane -->
+
+            <div class="tab-pane" id="item-esp-tecnicas">
+              <div class="row">
+                <table class="table table-condensed">				
+                  <thead>
+                    <tr>
+                      <th class="center">Cod.</th>
+                      <th class="center">Nombre</th>
+                      <th class="center">Unidad</th>
+                      <th class="center">Cantidad</th>
+                      <th class="center"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="apu-supplies">
+                    <tr>
+                      <td class="center">001</td>
+                      <td class="center">Item 1</td>
+                      <td class="center">XYZ</td>
+                      <td class="center">2</td>
+                      <td class="text-right">
+                          <div class="btn-group btn-group-xs ">
+                              <a id="" href="" class="btn btn-inverse edit-apu"><i class="fa fa-pencil"></i></a>
+                              <a id="" href="" class="btn btn-danger del-supply"><i class="fa fa-times"></i></a>
+                          </div>
+                      </td>
+                    </tr> 
+                    <tr>
+                      <td class="center">003</td>
+                      <td class="center">Item 3</td>
+                      <td class="center">ABC</td>
+                      <td class="center">1</td>
+                      <td class="text-right">
+                          <div class="btn-group btn-group-xs ">
+                              <a id="" href="" class="btn btn-inverse edit-apu"><i class="fa fa-pencil"></i></a>
+                              <a id="" href="" class="btn btn-danger del-supply"><i class="fa fa-times"></i></a>
+                          </div>
+                      </td>
+                    </tr> 
+                  </tbody>
+                </table>			
+              </div>
+						</div><!-- end tab-pane -->
+
+						<div class="tab-pane" id="ssma">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="col-md-3 control-label">Cargar Normativas EMBOL</label>
+										<div class="col-md-3">
+											<div class="input-group">
+												<textarea id="info-photo-desc" rows="5" cols="24" class="form-control" placeholder="Descripción..."></textarea>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="input-group">
+												<div class="fileupload fileupload-new margin-none" data-provides="fileupload">
+													<span class="btn btn-default btn-file"><span class="fileupload-new">Seleccionar Archivo</span><span class="fileupload-exists">Cambiar</span><input type="file" id="info-photo-img" accept='image/*' class="margin-none" /></span>
+													<span class="fileupload-preview"></span>
+													<a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">&times;</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<!-- <button type="button" id="save-photo-info" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Añadir</button> -->
+											<button type="button" id="" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Añadir</button>
+										</div>
+									</div>
+								</div>
+							</div><!-- end row -->
+							<div class="separator line bottom"></div>
+							<div class="separator top">
+								<table class="table">
+									<thead>
+										<tr>
+											<th class="left">Descripción</th>
+											<th class="center">Archivo Adjunto</th>
+											<th class=""></th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody id="photo-info-rows"></tbody>
+								</table>
+							</div>
+						</div><!-- end tab-pane -->
+
+            <div class="tab-pane" id="generate-pliego">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="col-md-8 control-label">Se generará el documento y será descargado automáticamente.</label>
+								  </div>
+							  </div>
+                <div class="separator line bottom"></div>
+                <div class="separator top col-md-8">
+                  <button type="button" id="" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> GENERAR PLIEGO</button>
+                </div>
+              </div>
+						</div><!-- end tab-pane -->
+						
+						
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--Scripts Needed-->
+	<script>
+		// Forms
+		$.getScript('js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3');
+		$.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/js/bootstrap-datepicker.js?v=v1.2.3');
+		$.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/custom/js/bootstrap-datepicker.init.js?v=v1.2.3');
+		// Chart
+		// $.getScript( "js/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.js?v=v1.2.3" );
+		// $.getScript( "js/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.resize.js?v=v1.2.3" );
+		$.getScript( "js/assets/components/modules/admin/charts/flot/assets/lib/plugins/jquery.flot.tooltip.min.js?v=v1.2.3" );
+		// $.getScript( "js/assets/components/modules/admin/charts/flot/assets/custom/js/flotcharts.common.js?v=v1.2.3" );
+		// $.getScript( "js/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-simple.init.js?v=v1.2.3" );
+		$.getScript( "js/shared/scurve-flotchart.js?v=v1.2.3" );
+		// File Upload
+		$.getScript( "js/assets/components/modules/admin/forms/elements/jasny-fileupload/assets/js/bootstrap-fileupload.js?v=v1.2.3" );
+		// Own JS file
+		$.getScript('js/modules/new-weekly-report.js');
+	</script>
+
+</body>
+</html>

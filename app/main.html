@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Principal</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!--<link rel="icon" href="img/favicon.ico" type="image/x-icon" />-->
+        <!--<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+        <link rel="stylesheet" href="js/assets/css/admin/module.admin.page.index.min.css" />
+    	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.notifications.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/assets/components/library/jquery/jquery.min.js?v=v1.2.3"></script>
+        <script src="js/assets/components/library/jquery/jquery-migrate.min.js?v=v1.2.3"></script>
+        <script src="js/assets/components/library/modernizr/modernizr.js?v=v1.2.3"></script>
+        <script src="js/assets/components/plugins/less-js/less.min.js?v=v1.2.3"></script>
+        <script src="js/assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.2.3"></script>
+        <script src="js/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.2.3"></script>
+        <!--Own libraries-->
+        <script src="js/shared/global.js"></script> 
+        <script src="js/shared/service.js"></script>
+        <script src="js/modules/main.js"></script>
+    </head>
+    <body>
+
+        <!--Navbar-->
+
+        <div class="navbar navbar-fixed-top navbar-primary main" role="navigation">
+            <div class="navbar-header pull-left">
+                <div class="navbar-brand">
+                    <div class="pull-left">
+                        <a href="" class="toggle-button toggle-sidebar btn-navbar"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <a href="main" class="appbrand innerL">GDAR</a>
+                </div>
+            </div>
+            <ul class="nav navbar-nav navbar-left">
+                <!--Left Navbar Content-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right hidden-xs">
+                <li>
+                    <div id="spinner"></div>
+                </li>
+                <li class="dropdown notification hidden-sm hidden-md">
+                    <a href="#" class="dropdown-toggle menu-icon" data-toggle="dropdown"><i class="fa fa-fw fa-exclamation-circle"></i><span class="badge badge-info">2</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Acción 1</a></li>
+                        <li><a href="#">Acción 2</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle user" data-toggle="dropdown"> <img src="js/assets/images/people/35/20.jpg" alt="" class="img-circle"/><span class="hidden-xs hidden-sm"> &nbsp; Gonzalo Aldunate </span><span class="caret"></span></a>
+                    <ul class="dropdown-menu list pull-right ">
+                        <li><a href="#">Tu Perfil <i class="fa fa-user pull-right"></i></a></li>
+                        <li><a href="#">Editar Cuenta <i class="fa fa-pencil pull-right"></i></a></li>
+                        <li><a href="" id="logout">Salir <i class="fa fa-sign-out pull-right"></i></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!--End of Navbar-->
+
+        <!--Sidebar-->
+
+        <div id="menu" class="hidden-print hidden-xs">
+            <div class="sidebar sidebar-inverse">
+                <div class="user-profile media innerAll">
+                    <div class="media-body">
+                        <p class="text-success"><i class="fa fa-fw fa-circle"></i> Proyecto Activo:</p>
+                        <select class="col-md-7 form-control pull-right projects"></select>
+                    </div>
+                </div>
+                <div class="sidebarMenuWrapper">
+                    <ul class="list-unstyled">
+                        <li><a href="" id="dashboard" class="side-menu"><i class="icon-projector-screen-line"></i><span>Panel Principal</span></a></li>
+                        <li class="hasSubmenu">
+                            <a href="#" data-target="#projects-toggle" data-toggle="collapse"><i class="icon-new-window"></i><span>Proyectos</span></a>
+                            <ul class="collapse" id="projects-toggle">
+                                <li><a href="" id="new-project" class="side-menu"><i class="icon-new-window"></i><span>Nuevo Proyecto</span></a></li>
+                                <li><a href="" id="list-projects" class="side-menu"><i class="icon-paper-document"></i><span>Lista de Proyectos</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="hasSubmenu">
+                            <a href="#" data-target="#licitacion-toggle" data-toggle="collapse"><i class="icon-paper-document"></i><span>Licitación</span></a>
+                            <ul class="collapse" id="licitacion-toggle">
+                                <li><a href="" id="new-computo" class="side-menu"><i class="icon-paper-stack"></i><span>Cómputos</span></a></li>
+                                <li><a href="" id="new-pliego" class="side-menu"><i class="icon-paper-documents"></i><span>Pliego</span></a></li>
+                                <li><a href="" id="new-planos" class="side-menu"><i class="icon-picture"></i><span>Planos</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="hasSubmenu">
+                            <a href="#" data-target="#presup-toggle" data-toggle="collapse"><i class="icon-coins"></i><span>Presupuesto</span></a>
+                            <ul class="collapse" id="presup-toggle">
+                                <li class="hasSubmenu">
+                                    <a href="#" data-target="#apu-toggle" data-toggle="collapse"><i class="icon-calculator"></i><span>Analisis de Precios Unitarios</span></a>
+                                    <ul class="collapse" id="apu-toggle">
+                                        <li><a href="" id="specific-data" class="side-menu"><i class="icon-paper-document"></i><span>Datos Específicos</span></a></li>
+                                        <li><a href="" id="social-benefits" class="side-menu"><i class="icon-group"></i><span>Beneficios Sociales</span></a></li>
+                                        <li><a href="" id="men-hrs-cost" class="side-menu"><i class="icon-dollar"></i><span>Costo Horas Hombre</span></a></li>
+                                        <li><a href="" id="apu" class="side-menu"><i class="icon-paper-stack"></i><span>APUs</span></a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="" id="expenses-reg" class="side-menu"><i class="icon-document-add"></i><span>Reg. Gastos Directos/Indirectos</span></a></li>
+                                <li><a href="" id="total-summary" class="side-menu"><i class="icon-dollar"></i><span>Resumen Total</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="hasSubmenu">
+                                <a href="#" data-target="#execution-toggle" data-toggle="collapse"><i class="icon-settings-wheel-fill"></i><span>Ejecución</span></a>
+                                <ul class="collapse" id="execution-toggle">
+                                    <li><a href="" id="schedule-gantt" class="side-menu"><i class="icon-sliders"></i><span>Gantt</span></a></li>
+                                    <li><a href="" id="schedule" class="side-menu"><i class="icon-calendar-2"></i><span>Cronograma</span></a></li>
+                                    <li><a href="" id="progress-form" class="side-menu"><i class="icon-paper-documents"></i><span>Planillas de Avance</span></a></li>
+                                </ul>
+                            </li>
+                        <li class="hasSubmenu">
+                            <a href="#" data-target="#monitor-toggle" data-toggle="collapse"><i class="icon-manager"></i><span>Monitoreo</span></a>
+                            <ul class="collapse" id="monitor-toggle">
+                                <li><a href="" id="weekly-reports" class="side-menu"><i class="icon-graph-up-1"></i><span>Informes Semanales</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="hasSubmenu">
+                            <a href="#" data-target="#admin-toggle" data-toggle="collapse"><i class="icon-dial-pad"></i><span>Administración</span></a>
+                            <ul class="collapse" id="admin-toggle">
+                                <li><a href="" id="supplies" class="side-menu"><i class="icon-settings-wheel"></i><span>Insumos</span></a></li>
+                                <li><a href="" id="s-curve" class="side-menu"><i class="icon-hammer"></i><span>Maquinaria</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" id="my-account" class="side-menu"><i class="icon-user-1"></i><span>Mi Cuenta</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--End of Sidebar-->
+
+        <!--Main Content-->
+        
+        <div id="content"></div>
+
+        <!--End of Main Content-->
+
+        <div class="clearfix"></div>
+
+        <div id="footer" class="hidden-print">
+            <div class="copy">&copy; 2019 <a href="">Const.</a> - Todos Los Derechos Reservados - Version: 1.0.0</div>
+        </div>
+
+        <!-- Global -->
+        <script>
+            var basePath = '',
+                commonPath = 'js/assets/',
+                rootPath = 'js/',
+                DEV = false,
+                componentsPath = 'js/assets/components/';
+
+            var primaryColor = '#cb4040',
+                dangerColor = '#b55151',
+                infoColor = '#466baf',
+                successColor = '#8baf46',
+                warningColor = '#ab7a4b',
+                inverseColor = '#45484d';
+
+            var themerPrimaryColor = primaryColor;
+        </script>
+
+        <!--Scripts Needed-->
+        <script src="js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3"></script>
+        <script src="js/assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v1.2.3"></script>
+        <script src="js/assets/components/plugins/breakpoints/breakpoints.js?v=v1.2.3"></script>
+        <script src="js/assets/components/plugins/holder/holder.js?v=v1.2.3"></script>
+        <script src="js/assets/components/core/js/sidebar.main.init.js?v=v1.2.3"></script>
+        <script src="js/assets/components/core/js/sidebar.collapse.init.js?v=v1.2.3"></script>
+        <script src="js/assets/components/helpers/themer/assets/plugins/cookie/jquery.cookie.js?v=v1.2.3"></script>
+        <script src="js/assets/components/core/js/core.init.js?v=v1.2.3"></script>
+        <script src="js/assets/components/modules/admin/notifications/gritter/assets/lib/js/jquery.gritter.min.js?v=v1.2.3"></script>
+    </body>
+</html>

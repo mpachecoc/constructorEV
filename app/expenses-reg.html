@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.widgets.min.css" />
+	<link rel="stylesheet" href="js/assets/components/modules/admin/charts/easy-pie/assets/lib/css/jquery.easy-pie-chart.css" />
+	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.tables.min.css" />
+
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+	<h1 class="bg-white content-heading border-bottom">Costos Directos e Indirectos</h1>
+	<div class="innerAll spacing-x2">
+		<div class="widget widget-inverse">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="widget" data-toggle="collapse-widget">
+						<div class="widget-head"><h4 class="heading">Registrar</h4></div>
+						<div class="widget-body">
+							<form id="expenses-form" class="form-horizontal">
+								<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="col-md-5 control-label">Gasto:</label>
+												<div class="col-md-7">
+													<div class="input-group">
+														<div class="btn-group" data-toggle="buttons">
+															<label class="btn btn-primary">
+																<input type="radio" name="type" value="indirecto" id="indirecto">Indirecto
+															</label>
+															<label class="btn btn-success">
+																<input type="radio" name="type" value="directo" id="directo">Directo
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+								</div>
+								<hr class="separator">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-md-4 control-label">Tipo de Descargo</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<select id="discharge" name="discharge" class="form-control">
+														<option value="factura">Factura</option>
+														<option value="recibo">Recibo</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Fecha</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="date" name="date" placeholder="dd-mm-aaaa" class="form-control datepickerCustom" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-calendar"></i></span>
+												</div>
+											</div>
+										</div>							
+										<div class="form-group">
+											<label class="col-md-4 control-label">Proveedor</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="supplier" name="supplier" placeholder="" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Descripción</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<textarea id="desc" name="desc" class="form-control" rows="2" placeholder=""></textarea>
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Item</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<select id="item" name="item" class="form-control"></select>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Sub-Item</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="sub_item" name="sub_item" placeholder="" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>	
+										<div class="form-group">
+											<label class="col-md-4 control-label">Objeto</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<select id="object" name="object" class="form-control">
+														<option value="Mano de Obra">Mano de Obra</option>
+														<option value="Materiales">Materiales</option>
+														<option value="Herramientas">Herramientas</option>
+														<option value="Equipos">Equipos</option>
+														<option value="Gastos Admin.">Gastos Admin.</option>
+														<option value="Factura">Factura</option>
+														<option value="Utilidad">Utilidad</option>
+													</select>
+												</div>
+											</div>
+										</div>	
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-md-4 control-label">Monto (Bs.)</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="amount" name="amount" placeholder="Ej. 0.00" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Número</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="number" name="number" placeholder="" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Factura</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="invoice" name="invoice" placeholder="Ej. 0.00" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Procedencia</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="origin" name="origin" placeholder="" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Autorización</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="authorization" name="authorization" placeholder="" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Cond 1</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="cond_1" name="cond_1" placeholder="" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Cond 2</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" id="cond_2" name="cond_2" placeholder="" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa fa-pencil-square-o"></i></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="separator line bottom"></div>
+								<div class="separator top">
+									<button type="button" id="save-expenses" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+									<button type="button" id="cancel-expenses" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button>									
+								</div>
+							</form>
+						</div>
+					</div>
+				</div><!-- end div class="col-md-8" -->
+				<div class="col-md-3">
+					<div class="text-center innerAll border-bottom">
+						<div class="separator bottom"></div>
+						<div data-percent="55" data-size="100" class="easy-pie inline-block easy-pie-gender primary" data-scale-color="false" data-track-color="#ffffff" data-line-width="4">
+							<div class="value text-center">
+								<span class="strong"><i class="icon-cash-bag fa-3x text-primary"></i></span>
+							</div>
+						</div>
+						<div class="separator bottom"></div>
+						<p class="lead"><span class="text-regular tot-indirect"></span> <span class="text-primary">Indirectos</span></p>
+					</div>
+					<div class="text-center innerAll">
+						<div class="separator bottom"></div>
+						<div data-percent="85" data-size="100" class="easy-pie inline-block easy-pie-gender success" data-scale-color="false" data-track-color="#ffffff" data-line-width="4">
+							<div class="value text-center">
+								<span class="strong"><i class="icon-cash-bag fa-3x text-success"></i></span>
+							</div>
+						</div>
+						<div class="separator bottom"></div>
+						<p class="lead"><span class="text-regular tot-direct"></span> <span class="text-success">Directos</span></p>
+					</div>
+				</div><!-- end div class="col-md-4" -->
+				<div class="col-md-12">
+					<div class="widget" data-toggle="collapse-widget">
+						<div class="widget-head"><h4 class="heading">Registros</h4></div>
+						<div class="widget-body">
+							<div class="row">
+								<table id="expenses-table" class="colVis table">
+								<!-- <table id="expenses-table" class="table table-condensed"> -->
+									<thead style="font-size: 12px;">
+										<tr>
+											<th></th>
+											<th>Gasto</th>
+											<th>Tipo de Descargo</th>
+											<th class="center">Fecha</th>
+											<th>Proveedor</th>
+											<th>Descripción</th>
+											<th>Item</th>
+											<th>Sub-Item</th>
+											<th>Objeto</th>
+											<th>Monto (Bs.)</th>
+											<th class="center">Número</th>
+											<th class="center">Factura</th>
+											<th>Proced.</th>
+											<th>Autorización</th>
+											<th class="center">Cond 1</th>
+											<th class="center">Cond 2</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody id="expenses-rows"></tbody>
+								</table>			
+							</div>
+						</div>
+					</div>
+				</div><!-- end div class="col-md-12" -->
+			</div><!-- end div class="row" -->
+		</div><!-- end div class="widget widget-inverse" -->
+	</div>
+
+	<!--Scripts Needed-->
+	<script>
+		$.getScript('js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3');
+		$.getScript('js/assets/components/modules/admin/widgets/widget-collapsible/assets/widget-collapsible.init.js?v=v1.2.3');
+		$.getScript('js/assets/components/modules/admin/charts/easy-pie/assets/lib/js/jquery.easy-pie-chart.js?v=v1.2.3');
+		$.getScript('js/assets/components/modules/admin/charts/easy-pie/assets/custom/easy-pie.init.js?v=v1.2.3');
+		$.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/js/bootstrap-datepicker.js?v=v1.2.3');
+		$.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/custom/js/bootstrap-datepicker.init.js?v=v1.2.3');
+		// DataTable
+		$.getScript( "js/assets/components/modules/admin/tables/datatables/assets/lib/js/jquery.dataTables.min.js?v=v1.2.3" );
+		$.getScript( "js/assets/components/modules/admin/tables/datatables/assets/lib/extras/TableTools/media/js/TableTools.min.js?v=v1.2.3" );
+		$.getScript( "js/assets/components/modules/admin/tables/datatables/assets/lib/extras/ColVis/media/js/ColVis.min.js?v=v1.2.3" );
+		$.getScript( "js/assets/components/modules/admin/tables/datatables/assets/custom/js/DT_bootstrap.js?v=v1.2.3" );
+		$.getScript( "js/assets/components/modules/admin/forms/elements/bootstrap-select/assets/lib/js/bootstrap-select.js?v=v1.2.3" );
+		// $.getScript( "js/assets/components/modules/admin/tables/classic/assets/js/tables-classic.init.js?v=v1.2.3" );
+		$.getScript('js/modules/expenses-reg.js');
+	</script>
+
+</body>
+</html>

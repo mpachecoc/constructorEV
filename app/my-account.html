@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!--<link rel="stylesheet" href="../assets/css/admin/module.admin.page.my_account.min.css" />-->
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+	<h1 class="bg-white content-heading border-bottom">Mi Cuenta</h1>
+	<div class="innerAll spacing-x2">
+		<div class="widget widget-tabs widget-tabs-gray border-bottom-none">
+			<div class="widget-head">
+				<ul>
+					<li class="active"><a class="glyphicons edit" href="#account-details" data-toggle="tab"><i></i>Mis Datos</a></li>
+					<li><a class="glyphicons settings" href="#account-settings" data-toggle="tab"><i></i>Configuraciones</a></li>
+				</ul>
+			</div>
+			<div class="widget-body">
+				<form class="form-horizontal">
+					<div class="tab-content">
+						<div class="tab-pane active" id="account-details">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="col-md-3 control-label">Nombre</label>
+										<div class="col-md-9">
+											<div class="input-group">
+												<input type="text" value="John" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="First name is mandatory"><i class="fa fa-question-circle"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">Apellido</label>
+										<div class="col-md-9">
+											<div class="input-group">
+												<input type="text" value="Doe" class="form-control" />
+												<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Last name is mandatory"><i class="fa fa-question-circle"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">Fecha de Nacimiento</label>
+										<div class="col-md-9">
+											<div class="input-group">
+												<input type="text" id="datepicker1" class="form-control" value="13/06/1988" />
+												<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="col-md-3 control-label">Genero</label>
+										<div class="col-md-9">
+											<select class="form-control">
+												<option>Male</option>
+												<option>Female</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">Edad</label>
+										<div class="col-md-9">
+											<input type="text" value="25" class="form-control" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="separator line bottom"></div>
+							<div class="separator top">
+								<button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+								<button type="button" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button>
+							</div>
+						</div>
+						<div class="tab-pane" id="account-settings">
+							<div class="row">
+								<div class="col-md-3">
+									<strong>Cambiar Contrasena</strong>
+									<p class="muted">Debe ingresar su antigua contrasena para cambiarla por una nueva.</p>
+								</div>
+								<div class="col-md-9">
+									<label for="inputUsername">Usuario</label>
+									<div class="input-group">
+										<input type="text" id="inputUsername" class="form-control" value="john.doe2012" disabled="disabled" />
+										<span class="input-group-addon" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Username can't be changed"><i class="icon-question-sign"></i></span>
+									</div>
+									<div class="separator bottom"></div>
+									<label for="inputPasswordOld">Antigua Contrasena</label>
+									<div class="input-group">
+										<input type="password" id="inputPasswordOld" class="form-control" value="" placeholder="Leave empty for no change" />
+										<span class="input-group-addon" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Leave empty if you don't wish to change the password"><i class="icon-question-sign"></i></span>
+									</div>
+									<div class="separator bottom"></div>
+
+									<label for="inputPasswordNew">Nueva Contrasena</label>
+									<input type="password" id="inputPasswordNew" class="form-control" value="" placeholder="Leave empty for no change" />
+									<div class="separator bottom"></div>
+
+									<label for="inputPasswordNew2">Repita la Nueva Contrasena</label>
+									<input type="password" id="inputPasswordNew2" class="form-control" value="" placeholder="Leave empty for no change" />
+									<div class="separator bottom"></div>
+								</div>
+							</div>
+							<div class="separator line bottom"></div>
+							<div class="row">
+								<div class="col-md-3">
+									<strong>Contacto</strong>
+									<p class="muted"></p>
+								</div>
+								<div class="col-md-9">
+									<div class="row">
+										<div class="col-md-6">
+											<label for="inputPhone">Telf.</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-phone"></i></span>
+												<input type="text" id="inputPhone" class="form-control" placeholder="01234567897" />
+											</div>
+											<div class="separator bottom"></div>
+
+											<label for="inputEmail">E-mail</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+												<input type="text" id="inputEmail" class="form-control" placeholder="contact@gmail.com" />
+											</div>
+											<div class="separator bottom"></div>
+											<label for="inputWebsite">Sitio Web</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-link"></i></span>
+												<input type="text" id="inputWebsite" class="form-control" placeholder="http://www.misitioweb.com" />
+											</div>
+											<div class="separator bottom"></div>
+										</div>
+										<div class="col-md-6">
+											<label for="inputFacebook">Facebook</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+												<input type="text" id="inputFacebook" class="form-control" placeholder="mipagina" />
+											</div>
+											<div class="separator bottom"></div>
+											<label for="inputSkype">Skype ID</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-skype"></i></span>
+												<input type="text" id="inputSkype" class="form-control" placeholder="mySkypeID" />
+											</div>
+											<div class="separator bottom"></div>
+
+											<label for="inputgplus">Instagram</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
+												<input type="text" id="inputgplus" class="form-control" placeholder="Instagram ID" />
+											</div>
+											<div class="separator bottom"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-actions" style="margin: 0;">
+								<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Guardar</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--Scripts Needed-->
+	<script>
+        $.getScript('js/modules/my-account.js');
+        $.getScript('js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3');
+        $.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/lib/js/bootstrap-datepicker.js?v=v1.2.3');
+        $.getScript('js/assets/components/modules/admin/forms/elements/bootstrap-datepicker/assets/custom/js/bootstrap-datepicker.init.js?v=v1.2.3');
+	</script>
+
+</body>
+</html>

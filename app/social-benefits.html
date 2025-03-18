@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.widgets.min.css" />
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+	<h1 class="bg-white content-heading border-bottom">Beneficios Sociales</h1>
+	<div class="innerAll spacing-x2">
+		<div class="widget widget-inverse">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="widget" data-toggle="collapse-widget">
+						<div class="widget-head"><h4 class="heading">B.1 Aporte Patronal</h4></div>
+						<div class="widget-body">
+							<form id="patronal-input" class="form-horizontal">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="form-group">
+											<label class="col-md-6 control-label">CNSS</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="cnss" name="cnss" placeholder="0.00" value="0" class="form-control calc-patronal" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Caja Nacional de Salud"><i class="fa">%</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Infocal</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="infocal" name="infocal" placeholder="0.00" value="0" class="form-control calc-patronal" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">%</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Aporte Patronal para la Vivienda</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="aporte_vivencia" name="aporte_vivencia" placeholder="0.00" value="0" class="form-control calc-patronal" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">%</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">AFPs</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="afps" name="afps" placeholder="0.00" value="0" class="form-control calc-patronal" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">%</i></span>
+												</div>
+											</div>
+										</div>
+										<hr class="separator">
+										<div class="form-group">
+											<label class="col-md-6 control-label">Subtotal</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="subtotal_ap" name="subtotal_ap" placeholder="0.00" class="form-control" readonly />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="SUM"><i class="fa">%</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Equivalente en d.c.</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="equivalente_dc" name="equivalente_dc" placeholder="0.00" class="form-control" readonly />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Subtotal * 365.2"><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="separator line bottom"></div>
+								<div class="separator top">
+									<button type="button" id="save-patronal-input" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+									<!-- <button type="button" id="cancel-patronal-input" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button> -->
+								</div>
+							</form>
+						</div>
+					</div>
+				</div><!-- end col-md -->
+				<div class="col-md-6">
+					<div class="widget" data-toggle="collapse-widget">
+						<div class="widget-head"><h4 class="heading">B.2 Bonos y Primas</h4></div>
+						<div class="widget-body">
+							<form id="bonuses" class="form-horizontal">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="form-group">
+											<label class="col-md-6 control-label">Aguinaldo</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="aguinaldo" name="aguinaldo" placeholder="0.00" value="0" class="form-control calc-bonuses" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Subsidios</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="subsidios" name="subsidios" placeholder="0.00" value="0" class="form-control calc-bonuses" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Indemnizacion</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="indemnizacion" name="indemnizacion" placeholder="0.00" value="0" class="form-control calc-bonuses" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Otros</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="otros" name="otros" placeholder="0.00" value="0" class="form-control calc-bonuses" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<hr class="separator">
+										<div class="form-group">
+											<label class="col-md-6 control-label">Subtotal</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="subtotal_bonos" name="subtotal_bonos" placeholder="0.00" class="form-control" readonly />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="separator line bottom"></div>
+								<div class="separator top">
+									<button type="button" id="save-bonuses" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+									<!-- <button type="button" id="cancel-bonuses" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button> -->
+								</div>
+								<div class="separator line bottom"></div>
+								<div class="separator line bottom"></div>
+								<div class="separator line bottom"></div>
+								<div class="separator line bottom"></div>
+							</form>
+						</div>
+					</div>
+				</div><!-- end col-md -->
+				<div class="col-md-6">
+					<div class="widget" data-toggle="collapse-widget">
+						<div class="widget-head"><h4 class="heading">B.3 Tiempo Habil Anual</h4></div>
+						<div class="widget-body">
+							<form id="annual-working-time" class="form-horizontal">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="form-group">
+											<label class="col-md-6 control-label">Dias del Año</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="year_days" name="year_days" placeholder="0" value="0" class="form-control calc-anual" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Inactividad</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="inactividad" name="inactividad" placeholder="0" value="0" class="form-control calc-anual" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Vacaciones</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="vacaciones" name="vacaciones" placeholder="0" value="0" class="form-control calc-anual" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Feriados</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="feriados" name="feriados" placeholder="0" value="0" class="form-control calc-anual" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Lluvias</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="lluvias" name="lluvias" placeholder="0" value="0" class="form-control calc-anual" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Enfermedades</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="enfermedades" name="enfermedades" placeholder="0" value="0" class="form-control calc-anual" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Dias No Trabajados</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="dias_no_trab" name="dias_no_trab" placeholder="0" value="0" class="form-control" readonly />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<hr class="separator">
+										<div class="form-group">
+											<label class="col-md-6 control-label">Subtotal</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="subtotal_anual_work" name="subtotal_anual_work" placeholder="0" class="form-control" readonly />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title=""><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="separator line bottom"></div>
+								<div class="separator top">
+									<button type="button" id="save-anual-working" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+									<!-- <button type="button" id="cancel-anual-working" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button> -->
+								</div>
+							</form>
+						</div>
+					</div>
+				</div><!-- end col-md -->
+				<div class="col-md-6">
+					<div class="widget" data-toggle="collapse-widget">
+						<div class="widget-head"><h4 class="heading">B.4 Carga Social</h4></div>
+						<div class="widget-body">
+							<form id="benefits-percentage" class="form-horizontal">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="col-md-12">
+											<strong>Dias Pagados:</strong>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Por Año</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="dias_paga_x_ano" name="dias_paga_x_ano" placeholder="0.00" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="B.3 (Dias no Trabajados + Subtotal)"><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Por Aporte Patronal</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="dias_paga_x_apatronal" name="dias_paga_x_apatronal" placeholder="0.00" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="B.1 (Equivalente en d.c.)"><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Por Bonos y Primas</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="dias_paga_x_bonos" name="dias_paga_x_bonos" placeholder="0.00" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="B.2 (Subtotal)"><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="separator line bottom"></div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Total</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="total" name="total" placeholder="0.00" value="0" class="form-control" readonly />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="SUM"><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="separator line bottom"></div>
+										<div class="col-md-12">
+											<strong>Totales:</strong>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Total Dias Pagados</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="tot_dias_paga" name="tot_dias_paga" placeholder="0.00" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Total Dias Pagados"><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Total Dias Habiles</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="tot_dias_habiles" name="tot_dias_habiles" placeholder="0.00" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="B.3 (Subtotal)"><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-6 control-label">Total Dias Pagados sin Trabajar</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="tot_dias_paga_sin_trab" name="tot_dias_paga_sin_trab" placeholder="0.00" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="'Total Dias Pagados' - 'Total Dias Hábiles'"><i class="fa">d.c.</i></span>
+												</div>
+											</div>
+										</div>
+										<div class="separator line bottom"></div>
+										<hr class="separator">
+										<div class="form-group">
+											<label class="col-md-6 control-label">% DE CARGA SOCIAL</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="porcentaje_carga_social" name="porcentaje_carga_social" placeholder="0" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="'Total Dias Pagados sin Trabajar' / 'Total Dias Hábiles'"><i class="fa">%</i></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="separator line bottom"></div>
+								<div class="separator top">
+									<!-- <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button> -->
+									<!-- <button type="button" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancelar</button> -->
+								</div>
+							</form>
+						</div>
+					</div>
+				</div><!-- end div class="col-md-6" -->
+			</div><!-- end div class="row" -->
+		</div><!-- end div class="widget widget-inverse" -->
+	</div>
+
+	<!--Scripts Needed-->
+	<script>
+        $.getScript('js/modules/social-benefits.js');
+				$.getScript('js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3');
+				$.getScript('js/assets/components/modules/admin/widgets/widget-collapsible/assets/widget-collapsible.init.js?v=v1.2.3');
+	</script>
+
+</body>
+</html>

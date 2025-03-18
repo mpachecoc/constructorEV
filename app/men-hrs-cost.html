@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.widgets.min.css" />
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+      <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+	<h1 class="bg-white content-heading border-bottom">Costo Horas Hombre</h1>
+	<div class="innerAll spacing-x2">
+		<div class="widget widget-inverse">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="widget" data-toggle="collapse-widget">
+						<div class="widget-head"><h4 class="heading">Datos Generales</h4></div>
+						<div class="widget-body">
+							<form id="cost-man-hrs-data" class="form-horizontal">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-md-7 control-label">Horas Trabajo por Dia</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="hrs_trab_x_dia" name="hrs_trab_x_dia" placeholder="Ej. 0" value="0" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Hrs."><i class="fa fa-question-circle"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-7 control-label">Comida Completa Dia (Bs.)</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="comida_completa_dia" name="comida_completa_dia" placeholder="Ej. 0" value="0" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Bs."><i class="fa fa-question-circle"></i></span>
+												</div>
+											</div>
+										</div>							
+										<div class="form-group">
+											<label class="col-md-7 control-label">Horas Mes por Persona</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="hrs_mes_x_persona" name="hrs_mes_x_persona" placeholder="0" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Horas Trabajo por Dia * 6 * 4"><i class="fa fa-question-circle"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-7 control-label">Horas Trabajadas Mes</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="hrs_trabajadas_mes" name="hrs_trabajadas_mes" placeholder="0" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Horas Mes por Persona * (Sum Personas)"><i class="fa fa-question-circle"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-7 control-label">Total Mensual</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="total_mensual" name="total_mensual" placeholder="0" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="SUM 'Costo por Persona'"><i class="fa fa-question-circle"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-7 control-label">Relacion de Gastos/Hrs. Trabajadas</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="relac_gastos_hrs_trab" name="relac_gastos_hrs_trab" placeholder="0" value="0" readonly class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Total Mensual / Horas Trabajadas Mes"><i class="fa fa-question-circle"></i></span>
+												</div>
+											</div>
+										</div>	
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-md-7 control-label">Coeficiente para Aportes Patronales</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="coef_ap_patronales" name="coef_ap_patronales" placeholder="Ej. 0.0000" value="0" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Ej. 0.1671"><i class="fa fa-question-circle"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-7 control-label">Coeficiente para Aguinaldo y Liquidacion</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="coef_aguinaldo_liq" name="coef_aguinaldo_liq" placeholder="Ej. 0.0000" value="0" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Ej. 0.1666"><i class="fa fa-question-circle"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-7 control-label">Coeficiente de Descuento a la AFP</label>
+											<div class="col-md-5">
+												<div class="input-group">
+													<input type="text" id="coef_desc_afp" name="coef_desc_afp" placeholder="Ej. 0.0000" value="0" class="form-control" />
+													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Ej. 0.1271"><i class="fa fa-question-circle"></i></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="separator line bottom"></div>
+								<div class="separator top">
+									<button type="button" id="save-cost-man-hrs" class="btn btn-primary"><i class="fa fa-fw fa-check"></i> Guardar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div><!-- end div class="col-md-8" -->
+				<div class="col-md-4">
+					<div class="widget" data-toggle="collapse-widget">
+						<div class="widget-head"><h4 class="heading">Resumen</h4></div>
+						<div class="widget-body">
+							<div class="row">
+								<div class="col-md-12">
+									<table class="table table-condensed">				
+										<thead>
+											<tr>
+												<th>Cargo</th>
+												<th class="center">Bs / Hr.</th>
+											</tr>
+										</thead>
+										<tbody id="resumen-row"></tbody>
+									</table>			
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- end div class="col-md-4" -->
+				<div class="col-md-12">
+					<div class="widget" data-toggle="collapse-widget">
+						<div class="widget-head"><h4 class="heading">Costo Por Persona</h4></div>
+						<div class="widget-body">
+							<form id="cost-man-hrs" class="form-horizontal">
+								<div class="row">
+									<div class="col-md-2">								
+										<label class="strong">Trabajador</label>
+										<select name="worker_id" class="form-control workers"></select>																				
+									</div>
+									<div class="col-md-2">								
+										<label class="strong">Básico (Bs.)</label>
+										<input type="text" id="basico" name="basico" class="form-control span8" placeholder="0.00" value="0" />															
+									</div>
+									<div class="col-md-2">								
+										<label class="strong">Bono (Bs.)</label>
+										<input type="text" id="bono" name="bono" class="form-control span8" placeholder="0.00" value="0" />							
+									</div>
+									<div class="col-md-2">								
+										<label class="strong">EPP</label>
+										<input type="text" id="epp" name="epp" class="form-control span8" placeholder="0.00" value="0" />							
+									</div>							
+									<div class="col-md-1">								
+										<label class="strong">Cantidad</label>
+										<input type="text" id="cant" name="cant" class="form-control span8" placeholder="0" value="0" />							
+									</div>							
+									<div class="col-md-1">								
+										<label class="strong">Transporte</label>
+										<input type="text" id="transporte" name="transporte" class="form-control span8" placeholder="0.00" value="0" />							
+									</div>							
+									<div class="col-md-2">							
+										<div class="separator top">							
+											<button type="button" id="add-cost-man-hrs" class="btn btn-primary"><i class="fa fa-check"></i> Añadir</button>
+										</div>
+									</div>
+								</div>
+								<div class="separator line bottom"></div>
+								<hr class="separator">
+								<div class="row">
+									<table id="men-hrs-cost-table" class="table table-condensed">				
+										<thead>
+											<tr>
+												<th class="center">Trabajador</th>
+												<th class="center">Básico</th>
+												<th class="center">Bono</th>
+												<th class="center">Sueldo+Bono</th>
+												<th class="center">Cantidad</th>
+												<th class="center">Precio Hrs Extra (Bs.)</th>
+												<th class="center">Hrs Extra al Mes</th>
+												<th class="center">Total Hrs. Extra</th>
+												<th class="center">Sueldo Total Mes</th>
+												<th class="center">Ap. Patronales</th>
+												<th class="center">Descuento AFP</th>
+												<th class="center">Liquido Pagable</th>
+												<th class="center">Aguinaldo y Liq.</th>
+												<th class="center">Comida Mes</th>
+												<th class="center">Transporte</th>
+												<th class="center">EPP Mes</th>
+												<th class="center">Tot Comida Mes</th>
+												<th class="center">Gasto Uni. x Cargo</th>
+												<th class="center">Gasto Mensual Total</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody id="worker-row"></tbody>
+									</table>			
+								</div>
+							</form>
+						</div>
+					</div>
+				</div><!-- end div class="col-md-12" -->
+			</div><!-- end div class="row" -->
+		</div><!-- end div class="widget widget-inverse" -->
+	</div>
+
+	<!--Scripts Needed-->
+	<script>
+        $.getScript('js/modules/men-hrs-cost.js');
+				$.getScript('js/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3');
+				$.getScript('js/assets/components/modules/admin/widgets/widget-collapsible/assets/widget-collapsible.init.js?v=v1.2.3');
+	</script>
+
+</body>
+</html>
