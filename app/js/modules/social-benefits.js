@@ -162,9 +162,11 @@ function setTotalB4() {
     var days_wout_trab = Math.round((b4_tot - tot_dias_habiles)*100)/100;
     $('#tot_dias_paga_sin_trab').val(days_wout_trab);
 
-    // '% de Carga Social' (* 100 so is %)
-    var cs = Math.round(((days_wout_trab / tot_dias_habiles)*100)*100)/100;
-    $('#porcentaje_carga_social').val(cs);
+    // '% de Carga Social' (* 100 so is %) (Check "tot_dias_habiles" isn't 0, so division is not infinite)
+    if (tot_dias_habiles != 0) {
+      var cs = Math.round(((days_wout_trab / tot_dias_habiles)*100)*100)/100;
+      $('#porcentaje_carga_social').val(cs);
+    }
 
 }
 

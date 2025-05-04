@@ -6,6 +6,7 @@
 var Totals = {
     supplies: 0,
     workers: 0,
+    current_total_workers: 0,
     total_workers: 0,
     equipments: 0,
     general_admin: 0,
@@ -17,6 +18,7 @@ var Totals = {
     gastos_generales: 0,
     utilidad_costo_directo: 0,
     it: 0,
+    costo_herram_mano_obra: 0,
     
     /** Calculate and fill points 4,5,6 and 'Total Precio Unitario' */
     calcTotPrecioUnitario: function() {
@@ -27,20 +29,56 @@ var Totals = {
         $('input#tot_gastos_gral_admin').val(formatNum(this.general_admin));
         
         // 5: (1+2+3+4) * % Utilidad sobre Costo Directo
-        var sum_1_4 = formatNum(sum_1_3 + this.general_admin);
+        var sum_1_4 = sum_1_3 + this.general_admin;
         this.utility = sum_1_4 * (Number(this.utilidad_costo_directo) / 100);
         $('input#tot_utilidad').val(formatNum(this.utility));
 
-        // console.log(this.general_admin, sum_1_4);
-        
         // 6: (1+2+3+4+5) * % I.T.
-        var sum_1_5 = formatNum(Number(sum_1_4) + Number(this.utility)); 
+        var sum_1_5 = Number(sum_1_4) + Number(this.utility); 
         this.taxes = sum_1_5 * (Number(this.it) / 100);
         $('input#tot_impuestos').val(formatNum(this.taxes));
         
         // Total Precio Unitario (Sum 1-6)
-        this.total_precio_unit = formatNum(Number(sum_1_5) + Number(this.taxes)); 
-        $('input#tot_precio_unitario').val(this.total_precio_unit);
+        this.total_precio_unit = Number(sum_1_5) + Number(this.taxes); 
+        $('input#tot_precio_unitario').val(formatNum(this.total_precio_unit));
+
+    },
+    prependFirstRowIn3Equipment: function() {
+      // Add first row of % of "herrmanientas mano de obra"
+      $('tr.first_row_equipment').remove();
+
+      var first_row = 
+        '<tr class="first_row_equipment">' +
+            '<td class="center"></td>' +
+            '<td class="center">Herramienta - ' + (Totals.costo_herram_mano_obra * 100) + '% de M.O.</td>' +
+            '<td class="center">' + Totals.costo_herram_mano_obra + '</td>' +
+            '<td class="center">' + formatNum(Totals.total_workers) + '</td>' +
+            '<td class="center">' + formatNum(Totals.costo_herram_mano_obra * Totals.total_workers) + '</td>' +
+        '</tr>';
+
+      $('#apu-equip').prepend(first_row);
+
+      // Update Total of 3. Equipment
+      // Check if 2. "Total Mano de Obra" has changed, if so, substract previous value 
+      if (Totals.total_workers != Totals.current_total_workers) {
+        Totals.equipments -= Number(formatNum(Totals.costo_herram_mano_obra * Totals.current_total_workers));
+      }
+      
+      // Add new value of 2. "Total Mano de Obra"  
+      Totals.equipments += Number(formatNum(Totals.costo_herram_mano_obra * Totals.total_workers));
+      
+      $('tr.equip_total').remove();
+      
+      var tot = 
+          '<tr class="equip_total">' +
+              '<td colspan="3"></td><th class="center">Total:</th><th class="center">' + formatNum(Totals.equipments) + '</th><td></td>' +
+          '</tr>';
+      
+      $('#apu-equip').append(tot);  
+
+      // Save current value of 2. "Total Mano de Obra"  
+      Totals.current_total_workers = Totals.total_workers;
+
     },
     getAPUJson: function() {
         // Get 2 Forms
@@ -51,10 +89,14 @@ var Totals = {
         var JSONData = serializeFormJSONAll(form);
         var JSONData2 = serializeFormJSONAll(form2);
 
-        // Add missing data
+        // Add missing data & convert current
         JSONData['tot_materiales'] = this.supplies;
         JSONData['tot_mano_de_obra'] = this.total_workers;
         JSONData['tot_equipo'] = this.equipments;
+        JSONData2['tot_gastos_gral_admin'] = formatInvNum(JSONData2['tot_gastos_gral_admin']);
+        JSONData2['tot_utilidad'] = formatInvNum(JSONData2['tot_utilidad']);
+        JSONData2['tot_impuestos'] = formatInvNum(JSONData2['tot_impuestos']);
+        JSONData2['tot_precio_unitario'] = formatInvNum(JSONData2['tot_precio_unitario']);
 
         // Merge Forms
         JSONData = $.extend({}, JSONData, JSONData2);
@@ -102,6 +144,7 @@ $(document).ready(function(){
                 Totals.gastos_generales = Number(data.gastos_generales);
                 Totals.utilidad_costo_directo = Number(data.utilidad_costo_directo);
                 Totals.it = Number(data.it);
+                Totals.costo_herram_mano_obra = Number(data.costo_herramientas) / 100;
             });
         }
     });
@@ -141,7 +184,7 @@ $(document).ready(function(){
                             $('#apu-supplies').append(rows);
 
                             // Update Total
-                            Totals.supplies += Number(formatNum(data.costo_total));
+                            Totals.supplies += Number(data.costo_total);
                             $('tr.supply_total').remove();
                             var tot = 
                             '<tr class="supply_total">' +
@@ -200,10 +243,10 @@ $(document).ready(function(){
                             });
 
                             // Update Total
-                            Totals.workers += Number(formatNum(data.costo_total));
+                            Totals.workers += Number(data.costo_total);
                             var cargas_sociales = formatNum(Totals.workers * (Totals.beneficios_sociales / 100));
                             var iva_cargas_sociales = formatNum((Totals.workers + Number(cargas_sociales)) * (Totals.iva / 100));
-                            Totals.total_workers = formatNum(Totals.workers + Number(cargas_sociales) + Number(iva_cargas_sociales));
+                            Totals.total_workers = Totals.workers + Number(cargas_sociales) + Number(iva_cargas_sociales);
 
                             $('tr.worker_total').remove();
                             var tot = 
@@ -223,6 +266,9 @@ $(document).ready(function(){
 
                             // Calculate points 4,5,6 and 'Total Precio Unitario'
                             Totals.calcTotPrecioUnitario();
+
+                            // Prepend First Row of 3. "Equipment" with % of "mano de obra"
+                            Totals.prependFirstRowIn3Equipment();
 
                         }
                     });
@@ -286,9 +332,9 @@ $(document).ready(function(){
         if (resp != 404){
             var options = '<optgroup label="Materiales">';
             $.map(resp, function (suppObj, i) {
-                $.each(suppObj, function (i, suppArr) {
+                $.each(suppObj, function (i, suppArr) { 
                     options = options + 
-                    '<option value="' + suppArr.id + '">' + suppArr.id + ' - ' + suppArr.name + ' - ' + suppArr.und + '</option>';   
+                    '<option value="' + suppArr.id + '">' + suppArr.id + ' - ' + suppArr.name + ' - ' + suppArr.und + ' - Bs. ' + formatNum(suppArr.precio) + '</option>';   
                 });
             });
             options = options + '</optgroup>';
@@ -324,7 +370,7 @@ $(document).ready(function(){
             $.map(resp, function (Obj, i) {
                 $.each(Obj, function (i, Arr) {
                     options = options + 
-                    '<option value="' + Arr.id + '">' + Arr.id + ' - ' + Arr.name + ' - ' + Arr.precio + '</option>';   
+                    '<option value="' + Arr.id + '">' + Arr.id + ' - ' + Arr.name + ' - Bs. ' + formatNum(Arr.precio) + '</option>';   
                 });
             });
             options = options + '</optgroup>';
@@ -450,7 +496,7 @@ $(document).off('click', "#add-supply-btn").on('click', "#add-supply-btn", funct
                     $('#apu-supplies').append(rows);
 
                     // Update Total
-                    Totals.supplies += Number(formatNum(supp_costo_tot));
+                    Totals.supplies += Number(supp_costo_tot);
                     $('tr.supply_total').remove();
                     var tot = 
                     '<tr class="supply_total">' +
@@ -556,10 +602,10 @@ $(document).off('click', "#add-worker-btn").on('click', "#add-worker-btn", funct
                     });
 
                     // Update Total
-                    Totals.workers += Number(formatNum(cw_costo_tot));
+                    Totals.workers += Number(cw_costo_tot);
                     var cargas_sociales = formatNum(Totals.workers * (Totals.beneficios_sociales / 100));
                     var iva_cargas_sociales = formatNum((Totals.workers + Number(cargas_sociales)) * (Totals.iva / 100));
-                    Totals.total_workers = formatNum(Totals.workers + Number(cargas_sociales) + Number(iva_cargas_sociales));
+                    Totals.total_workers = Totals.workers + Number(cargas_sociales) + Number(iva_cargas_sociales);
 
                     $('tr.worker_total').remove();
                     var tot = 
@@ -582,6 +628,9 @@ $(document).off('click', "#add-worker-btn").on('click', "#add-worker-btn", funct
 
                     // Calculate points 4,5,6 and 'Total Precio Unitario'
                     Totals.calcTotPrecioUnitario();
+
+                    // Prepend First Row of 3. "Equipment" with % of "mano de obra"
+                    Totals.prependFirstRowIn3Equipment();
 
                 }).fail(function (jqXHR) {
                     console.log('Failed, status code: ' + jqXHR.status);
@@ -615,7 +664,7 @@ $(document).off('click', "#add-equip-btn").on('click', "#add-equip-btn", functio
 
         // Init required vars
         var form = $('form#add-equip');
-        var equip_id = '';
+        var equip_id = 0;
         var equip_name= '';
         var equip_price = 0;
         var equip_costo_tot = 0;
@@ -635,8 +684,8 @@ $(document).off('click', "#add-equip-btn").on('click', "#add-equip-btn", functio
                 var JSONData = serializeFormJSONAll(form);
                 JSONData['proj_id'] = ACTIVE_PROJECT;                
                 JSONData['apu_id'] = $('input#id').val();
-                JSONData['precio_productivo'] = formatNum(equip_price);
-                JSONData['costo_total'] = formatNum(equip_costo_tot);
+                JSONData['precio_productivo'] = equip_price;
+                JSONData['costo_total'] = equip_costo_tot; 
                 JSONData = JSON.stringify(JSONData);
 
                 // Insert in 'APU-Equipments' DB
@@ -665,7 +714,7 @@ $(document).off('click', "#add-equip-btn").on('click', "#add-equip-btn", functio
                     $('#apu-equip').append(rows);
 
                     // Update Total
-                    Totals.equipments += Number(formatNum(equip_costo_tot));
+                    Totals.equipments += Number(equip_costo_tot);
                     $('tr.equip_total').remove();
                     var tot = 
                     '<tr class="equip_total">' +
@@ -674,7 +723,7 @@ $(document).off('click', "#add-equip-btn").on('click', "#add-equip-btn", functio
                     $('#apu-equip').append(tot);                    
 
                     // Clear 'Cant' input
-                    $('input#equip_cant').val('');
+                    $('input#equip_cant').val(0);
 
                     // Calculate points 4,5,6 and 'Total Precio Unitario'
                     Totals.calcTotPrecioUnitario();
@@ -736,7 +785,7 @@ $(document).off('click', ".del-supply").on('click', ".del-supply", function(even
             $('#'+supp_id).parent().parent().parent().remove();            
             
             // Update Total
-            Totals.supplies -= Number(formatNum(supp_costo_tot));
+            Totals.supplies -= Number(supp_costo_tot);
             $('tr.supply_total').remove();
             var tot = 
             '<tr class="supply_total">' +
@@ -782,7 +831,7 @@ $(document).off('click', ".del-cw").on('click', ".del-cw", function(event) {
             $('#'+worker_id).parent().parent().parent().remove();            
             console.log(cw_costo_tot);
             // Update Total
-            Totals.workers -= Number(formatNum(cw_costo_tot));
+            Totals.workers -= Number(cw_costo_tot);
             var cargas_sociales = formatNum(Totals.workers * (Totals.beneficios_sociales / 100));
             var iva_cargas_sociales = formatNum((Totals.workers + Number(cargas_sociales)) * (Totals.iva / 100));
             Totals.total_workers = formatNum(Totals.workers + Number(cargas_sociales) + Number(iva_cargas_sociales));
@@ -841,7 +890,7 @@ $(document).off('click', ".del-equip").on('click', ".del-equip", function(event)
             $('#'+equip_id).parent().parent().parent().remove();            
             console.log(equip_costo_tot);
             // Update Total
-            Totals.equipments -= Number(formatNum(equip_costo_tot));
+            Totals.equipments -= Number(equip_costo_tot);
             $('tr.equip_total').remove();
             var tot = 
             '<tr class="equip_total">' +

@@ -30,6 +30,7 @@
     $worker->epp = $data->epp;
     $worker->cant  = $data->cant;
     $worker->transporte = $data->transporte;
+    $worker->hrs_extra_mes = $data->hrs_extra_mes;
     $worker->gasto_mensual_tot = $data->gasto_mensual_tot;
     $worker->bs_x_hr = $data->bs_x_hr;
 
@@ -46,6 +47,7 @@
             'epp'  => $worker->epp,
             'cant' => $worker->cant,
             'transporte' => $worker->transporte,
+            'hrs_extra_mes' => $worker->hrs_extra_mes,
             'gasto_mensual_tot' => $worker->gasto_mensual_tot,
             'bs_x_hr' => $worker->bs_x_hr
         );

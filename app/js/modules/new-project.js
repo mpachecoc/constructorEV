@@ -36,7 +36,7 @@ $(document).off('click', "#save-new-proj").on('click', "#save-new-proj", functio
         JSONData['exchange_rate'] = 0;
 
         JSONData = JSON.stringify(JSONData); 
-        // console.log(JSONData); 
+        // console.log(JSONData, userID); return false; 
 
         // Insert in 'Project' DB
         $.ajax({

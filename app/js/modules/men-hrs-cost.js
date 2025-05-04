@@ -49,7 +49,7 @@ var calculation = {
         this.hrs_trabajadas_mes = Number(this.hrs_trabajadas_mes);
         this.sum_gasto_mensual_tot = Number(this.sum_gasto_mensual_tot);
         // return this.relac_gastos_hrs_trab = (Math.round((this.sum_gasto_mensual_tot / this.hrs_trabajadas_mes)*100)/100).toFixed(7);
-        return this.relac_gastos_hrs_trab = (this.sum_gasto_mensual_tot / this.hrs_trabajadas_mes).toFixed(7);
+        return this.relac_gastos_hrs_trab = (this.sum_gasto_mensual_tot / this.hrs_trabajadas_mes).toFixed(8);
     },
     sumBasicoBono: function(){
         this.basico = Number(this.basico);
@@ -61,8 +61,8 @@ var calculation = {
         return this.precio_doble;
     },
     getHrsExtraMes: function(){
-        this.hrs_extra_mes = (Math.round((((6*this.hrs_trab_x_dia)-48)*4)*100)/100).toFixed(2);
-        return this.hrs_extra_mes;
+        // this.hrs_extra_mes = (Math.round((((6*this.hrs_trab_x_dia)-48)*4)*100)/100).toFixed(2);
+        return Number(this.hrs_extra_mes);
     },
     getTotHrsExtra: function(){
         this.tot_hrs_extra = (Math.round((this.precio_doble * this.hrs_extra_mes)*100)/100).toFixed(2);
@@ -93,7 +93,8 @@ var calculation = {
         return this.transporte = (Math.round(this.transporte*100)/100).toFixed(2);
     },
     getEpp: function(){
-        return this.calc_epp = (Math.round((this.epp / 6)*100)/100).toFixed(2);
+      // return this.calc_epp = (Math.round((this.epp / 6)*100)/100).toFixed(2);
+      return this.calc_epp = (Math.round(this.epp*100)/100).toFixed(2);
     },
     getTotComidaMes: function(){
         this.comida_mensual = Number(this.comida_mensual);
@@ -103,13 +104,15 @@ var calculation = {
     getGastoUnixCargo: function(){
         this.liquido_pagable = Number(this.liquido_pagable);
         this.ap_patronales = Number(this.ap_patronales);
-        return this.gasto_uni_x_cargo = (Math.round((this.liquido_pagable + this.comida_mensual + this.ap_patronales)*100)/100).toFixed(2);
+        // return this.gasto_uni_x_cargo = (Math.round((this.liquido_pagable + this.comida_mensual + this.ap_patronales)*100)/100).toFixed(2);
+        return this.gasto_uni_x_cargo = (Math.round((this.liquido_pagable + this.comida_mensual)*100)/100).toFixed(2);
     },
     getGastoMensualTot: function(){
         this.transporte = Number(this.transporte);
         this.calc_epp = Number(this.calc_epp);
-        this.aguinaldo_liq = Number(this.aguinaldo_liq);
-        return this.gasto_mensual_tot = (Math.round(((this.liquido_pagable + this.comida_mensual + this.ap_patronales + this.transporte + this.calc_epp + this.aguinaldo_liq) * this.cant)*100)/100).toFixed(2);
+        this.aguinaldo_liq = Number(this.aguinaldo_liq); 
+        // return this.gasto_mensual_tot = (Math.round(((this.liquido_pagable + this.comida_mensual + this.ap_patronales + this.transporte + this.calc_epp + this.aguinaldo_liq) * this.cant)*100)/100).toFixed(2);
+        return this.gasto_mensual_tot = (Math.round(((this.liquido_pagable + this.comida_mensual + this.transporte + this.calc_epp) * this.cant)*100)/100).toFixed(2);
     },
     getBsxHr: function(){
         this.gasto_mensual_tot = Number(this.gasto_mensual_tot);
@@ -120,10 +123,10 @@ var calculation = {
         this.getHrsExtraMes();
         this.getTotHrsExtra();
         this.getSueldoTotMes();
-        this.getApPatronales();
-        this.getDescuentoAfp();
+        // this.getApPatronales();
+        // this.getDescuentoAfp();
         this.getLiquidoPagable();
-        this.getAguinaldoLiq();
+        // this.getAguinaldoLiq();
         this.getComidaMensual();
         this.getTransporte();
         this.getEpp();
@@ -192,6 +195,7 @@ $(document).ready(function(){
                     calculation.cant = dataArr.cant;
                     calculation.sum_cant += Number(dataArr.cant);
                     calculation.transporte = dataArr.transporte;
+                    calculation.hrs_extra_mes = dataArr.hrs_extra_mes;
                     
                     // Save ID of workers to get the 'Name' below 
                     if($.inArray(dataArr.worker_id, calculation.worker_arr) == -1){
@@ -205,18 +209,18 @@ $(document).ready(function(){
                     '<td class="center">' + dataArr.basico + '</td>' +
                     '<td class="center">' + dataArr.bono + '</td>' +
                     '<td class="center">' + calculation.sumBasicoBono() + '</td>' +
-                    '<td class="center">' + dataArr.cant + '</td>' +
                     '<td class="center">' + calculation.getPrecioDoble() + '</td>' +
-                    '<td class="center">' + calculation.getHrsExtraMes() + '</td>' +
+                    '<td class="center">' + dataArr.hrs_extra_mes + '</td>' +
                     '<td class="center">' + calculation.getTotHrsExtra() + '</td>' +
                     '<td class="center">' + calculation.getSueldoTotMes() + '</td>' +
-                    '<td class="center">' + calculation.getApPatronales() + '</td>' +
-                    '<td class="center">' + calculation.getDescuentoAfp() + '</td>' +
+                    // '<td class="center">' + calculation.getApPatronales() + '</td>' +
+                    // '<td class="center">' + calculation.getDescuentoAfp() + '</td>' +
                     '<td class="center">' + calculation.getLiquidoPagable() + '</td>' +
-                    '<td class="center">' + calculation.getAguinaldoLiq() + '</td>' +
+                    // '<td class="center">' + calculation.getAguinaldoLiq() + '</td>' +
                     '<td class="center">' + calculation.getComidaMensual() + '</td>' +
                     '<td class="center">' + calculation.getTransporte() + '</td>' +
                     '<td class="center">' + calculation.getEpp() + '</td>' +
+                    '<td class="center">' + dataArr.cant + '</td>' +
                     '<td class="center">' + calculation.getTotComidaMes() + '</td>' +
                     '<td class="center">' + calculation.getGastoUnixCargo() + '</td>' +
                     '<td class="center">' + dataArr.gasto_mensual_tot + '</td>' +
@@ -238,7 +242,7 @@ $(document).ready(function(){
             // Add Total 
             rows = rows + 
             '<tr class="tr_total_mensual">' +
-                '<td colspan="18"></td><td class="center">' + calculation.sum_gasto_mensual_tot + '</td><td></td>' +
+                '<td colspan="15"></td><td class="center">' + calculation.sum_gasto_mensual_tot + '</td><td></td>' +
             '</tr>';
 
             // Append data in DOM
@@ -324,12 +328,14 @@ $(document).off('click', "#add-cost-man-hrs").on('click', "#add-cost-man-hrs", f
         calculation.cant = Number($('input#cant').val());
         calculation.epp = Number($('input#epp').val()); 
         calculation.transporte = Number($('input#transporte').val());
+        calculation.hrs_extra_mes = Number($('input#hrs_extra_mes').val());
 
         // Create JSON with Form
         var JSONData = serializeFormJSONAll(form);
         JSONData['proj_id'] = proj_id;
         JSONData['gasto_mensual_tot'] = calculation.getGastoMensualTotAtOnce();
         JSONData['bs_x_hr'] = calculation.getBsxHr();
+        // console.log(JSONData); return false;
         JSONData = JSON.stringify(JSONData); 
 
         // Insert into DB and display in DOM
@@ -356,18 +362,18 @@ $(document).off('click', "#add-cost-man-hrs").on('click', "#add-cost-man-hrs", f
                     '<td class="center">' + calculation.basico.toFixed(2) + '</td>' +
                     '<td class="center">' + calculation.bono.toFixed(2) + '</td>' +
                     '<td class="center">' + calculation.sumBasicoBono() + '</td>' +
-                    '<td class="center">' + calculation.cant + '</td>' +
                     '<td class="center">' + calculation.getPrecioDoble() + '</td>' +
-                    '<td class="center">' + calculation.getHrsExtraMes() + '</td>' +
+                    '<td class="center">' + calculation.hrs_extra_mes.toFixed(2) + '</td>' +
                     '<td class="center">' + calculation.getTotHrsExtra() + '</td>' +
                     '<td class="center">' + calculation.getSueldoTotMes() + '</td>' +
-                    '<td class="center">' + calculation.getApPatronales() + '</td>' +
-                    '<td class="center">' + calculation.getDescuentoAfp() + '</td>' +
+                    // '<td class="center">' + calculation.getApPatronales() + '</td>' +
+                    // '<td class="center">' + calculation.getDescuentoAfp() + '</td>' +
                     '<td class="center">' + calculation.getLiquidoPagable() + '</td>' +
-                    '<td class="center">' + calculation.getAguinaldoLiq() + '</td>' +
+                    // '<td class="center">' + calculation.getAguinaldoLiq() + '</td>' +
                     '<td class="center">' + calculation.getComidaMensual() + '</td>' +
                     '<td class="center">' + calculation.getTransporte() + '</td>' +
                     '<td class="center">' + calculation.getEpp() + '</td>' +
+                    '<td class="center">' + calculation.cant + '</td>' +
                     '<td class="center">' + calculation.getTotComidaMes() + '</td>' +
                     '<td class="center">' + calculation.getGastoUnixCargo() + '</td>' +
                     '<td class="center">' + calculation.getGastoMensualTot() + '</td>' +
@@ -430,7 +436,7 @@ function reCalcDatosGrales (action){
     $('tr.tr_total_mensual').remove();
     var tots = 
     '<tr class="tr_total_mensual">' +
-        '<td colspan="18"></td><td class="center">' + calculation.sum_gasto_mensual_tot + '</td><td></td>' +
+        '<td colspan="15"></td><td class="center">' + calculation.sum_gasto_mensual_tot + '</td><td></td>' +
     '</tr>';
     $('#worker-row').append(tots);
 

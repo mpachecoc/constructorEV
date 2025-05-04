@@ -20,9 +20,10 @@
 	<div class="innerAll spacing-x2">
 		<div class="widget widget-inverse">
 			<div class="row">
-				<div class="col-md-8">
+				
+        <div class="col-md-8">
 					<div class="widget" data-toggle="collapse-widget">
-						<div class="widget-head"><h4 class="heading">Datos Generales</h4></div>
+						<div class="widget-head"><h4 class="heading">Resumen de Costos Hora Hombre</h4></div>
 						<div class="widget-body">
 							<form id="cost-man-hrs-data" class="form-horizontal">
 								<div class="row">
@@ -87,7 +88,7 @@
 											<label class="col-md-7 control-label">Coeficiente para Aportes Patronales</label>
 											<div class="col-md-5">
 												<div class="input-group">
-													<input type="text" id="coef_ap_patronales" name="coef_ap_patronales" placeholder="Ej. 0.0000" value="0" class="form-control" />
+													<input type="text" id="coef_ap_patronales" name="coef_ap_patronales" placeholder="Ej. 0.0000" value="0.1671" class="form-control" />
 													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Ej. 0.1671"><i class="fa fa-question-circle"></i></span>
 												</div>
 											</div>
@@ -96,7 +97,7 @@
 											<label class="col-md-7 control-label">Coeficiente para Aguinaldo y Liquidacion</label>
 											<div class="col-md-5">
 												<div class="input-group">
-													<input type="text" id="coef_aguinaldo_liq" name="coef_aguinaldo_liq" placeholder="Ej. 0.0000" value="0" class="form-control" />
+													<input type="text" id="coef_aguinaldo_liq" name="coef_aguinaldo_liq" placeholder="Ej. 0.0000" value="0.1666" class="form-control" />
 													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Ej. 0.1666"><i class="fa fa-question-circle"></i></span>
 												</div>
 											</div>
@@ -105,7 +106,7 @@
 											<label class="col-md-7 control-label">Coeficiente de Descuento a la AFP</label>
 											<div class="col-md-5">
 												<div class="input-group">
-													<input type="text" id="coef_desc_afp" name="coef_desc_afp" placeholder="Ej. 0.0000" value="0" class="form-control" />
+													<input type="text" id="coef_desc_afp" name="coef_desc_afp" placeholder="Ej. 0.0000" value="0.1271" class="form-control" />
 													<span class="input-group-addon" data-toggle="tooltip" data-container="body" data-placement="top" data-original-title="Ej. 0.1271"><i class="fa fa-question-circle"></i></span>
 												</div>
 											</div>
@@ -120,9 +121,10 @@
 						</div>
 					</div>
 				</div><!-- end div class="col-md-8" -->
+
 				<div class="col-md-4">
 					<div class="widget" data-toggle="collapse-widget">
-						<div class="widget-head"><h4 class="heading">Resumen</h4></div>
+						<div class="widget-head"><h4 class="heading">Costos Hora Hombre</h4></div>
 						<div class="widget-body">
 							<div class="row">
 								<div class="col-md-12">
@@ -140,7 +142,8 @@
 						</div>
 					</div>
 				</div><!-- end div class="col-md-4" -->
-				<div class="col-md-12">
+
+        <div class="col-md-12">
 					<div class="widget" data-toggle="collapse-widget">
 						<div class="widget-head"><h4 class="heading">Costo Por Persona</h4></div>
 						<div class="widget-body">
@@ -159,6 +162,10 @@
 										<input type="text" id="bono" name="bono" class="form-control span8" placeholder="0.00" value="0" />							
 									</div>
 									<div class="col-md-2">								
+										<label class="strong">Hrs. Extra al Mes</label>
+										<input type="text" id="hrs_extra_mes" name="hrs_extra_mes" class="form-control span8" placeholder="0.00" value="0" />							
+									</div>
+									<div class="col-md-1">								
 										<label class="strong">EPP</label>
 										<input type="text" id="epp" name="epp" class="form-control span8" placeholder="0.00" value="0" />							
 									</div>							
@@ -170,7 +177,7 @@
 										<label class="strong">Transporte</label>
 										<input type="text" id="transporte" name="transporte" class="form-control span8" placeholder="0.00" value="0" />							
 									</div>							
-									<div class="col-md-2">							
+									<div class="col-md-1">							
 										<div class="separator top">							
 											<button type="button" id="add-cost-man-hrs" class="btn btn-primary"><i class="fa fa-check"></i> Añadir</button>
 										</div>
@@ -186,18 +193,18 @@
 												<th class="center">Básico</th>
 												<th class="center">Bono</th>
 												<th class="center">Sueldo+Bono</th>
-												<th class="center">Cantidad</th>
 												<th class="center">Precio Hrs Extra (Bs.)</th>
 												<th class="center">Hrs Extra al Mes</th>
 												<th class="center">Total Hrs. Extra</th>
 												<th class="center">Sueldo Total Mes</th>
-												<th class="center">Ap. Patronales</th>
-												<th class="center">Descuento AFP</th>
+												<!-- <th class="center">Ap. Patronales*</th> -->
+												<!-- <th class="center">Descuento AFP*</th> -->
 												<th class="center">Liquido Pagable</th>
-												<th class="center">Aguinaldo y Liq.</th>
+												<!-- <th class="center">Aguinaldo y Liq.*</th> -->
 												<th class="center">Comida Mes</th>
 												<th class="center">Transporte</th>
 												<th class="center">EPP Mes</th>
+												<th class="center">Cantidad</th>
 												<th class="center">Tot Comida Mes</th>
 												<th class="center">Gasto Uni. x Cargo</th>
 												<th class="center">Gasto Mensual Total</th>
@@ -211,6 +218,7 @@
 						</div>
 					</div>
 				</div><!-- end div class="col-md-12" -->
+				
 			</div><!-- end div class="row" -->
 		</div><!-- end div class="widget widget-inverse" -->
 	</div>

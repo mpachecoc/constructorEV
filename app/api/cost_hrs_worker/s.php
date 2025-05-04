@@ -35,6 +35,7 @@
             'epp'  => $worker->epp,
             'cant' => $worker->cant,
             'transporte' => $worker->transporte,
+            'hrs_extra_mes' => $worker->hrs_extra_mes,
             'gasto_mensual_tot' => $worker->gasto_mensual_tot,
             'bs_x_hr' => $worker->bs_x_hr
         );

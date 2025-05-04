@@ -105,7 +105,7 @@ function formatNum(num){
 }
 
 /** Inverse Format remove (,) for thousands to make calculations */
-function formatInvNum(num){
+function formatInvNum(num){ 
     return Number(num.replace(/\,/g,''));
 }
 

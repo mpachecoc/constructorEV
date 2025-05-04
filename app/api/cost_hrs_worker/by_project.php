@@ -42,6 +42,7 @@
                 'epp'  => $cwEPP,
                 'cant' => $cwCantidad,
                 'transporte' => $cwTransporte,
+                'hrs_extra_mes' => $cwHrsExtraMes,
                 'gasto_mensual_tot' => $cwGastoMensualTotal,
                 'bs_x_hr' => $cwBsXHr
             );

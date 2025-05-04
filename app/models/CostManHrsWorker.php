@@ -14,6 +14,7 @@
         public $epp;
         public $cant;
         public $transporte;
+        public $hrs_extra_mes;
         public $gasto_mensual_tot;
         public $bs_x_hr;
         public $exists; // Num of returned rows
@@ -62,6 +63,7 @@
             $this->epp  = $row['cwEPP'];
             $this->cant = $row['cwCantidad'];
             $this->transporte = $row['cwTransporte'];
+            $this->hrs_extra_mes = $row['cwHrsExtraMes'];
             $this->gasto_mensual_tot = $row['cwGastoMensualTotal'];
             $this->bs_x_hr = $row['cwBsXHr'];
         }
@@ -94,6 +96,7 @@
                       cwEPP  = :epp,
                       cwCantidad = :cant,
                       cwTransporte = :transporte,
+                      cwHrsExtraMes = :hrs_extra_mes,
                       cwGastoMensualTotal = :gasto_mensual_tot,
                       cwBsXHr = :bs_x_hr';
 
@@ -108,6 +111,7 @@
             $this->epp = htmlspecialchars(strip_tags($this->epp));
             $this->cant = htmlspecialchars(strip_tags($this->cant));
             $this->transporte = htmlspecialchars(strip_tags($this->transporte));
+            $this->hrs_extra_mes = htmlspecialchars(strip_tags($this->hrs_extra_mes));
             $this->gasto_mensual_tot = htmlspecialchars(strip_tags($this->gasto_mensual_tot));
             $this->bs_x_hr = htmlspecialchars(strip_tags($this->bs_x_hr));
 
@@ -119,6 +123,7 @@
             $stmt->bindParam(':epp', $this->epp);
             $stmt->bindParam(':cant', $this->cant);
             $stmt->bindParam(':transporte', $this->transporte);
+            $stmt->bindParam(':hrs_extra_mes', $this->hrs_extra_mes);
             $stmt->bindParam(':gasto_mensual_tot', $this->gasto_mensual_tot);
             $stmt->bindParam(':bs_x_hr', $this->bs_x_hr);
 
@@ -146,6 +151,7 @@
                       cwEPP  = :epp,
                       cwCantidad = :cant,
                       cwTransporte = :transporte,
+                      cwHrsExtraMes = :hrs_extra_mes,
                       cwGastoMensualTotal = :gasto_mensual_tot,
                       cwBsXHr = :bs_x_hr
                     WHERE 
@@ -163,6 +169,7 @@
             $this->epp  = htmlspecialchars(strip_tags($this->epp));
             $this->cant = htmlspecialchars(strip_tags($this->cant));
             $this->transporte = htmlspecialchars(strip_tags($this->transporte));
+            $this->hrs_extra_mes = htmlspecialchars(strip_tags($this->hrs_extra_mes));
             $this->gasto_mensual_tot = htmlspecialchars(strip_tags($this->gasto_mensual_tot));
             $this->bs_x_hr = htmlspecialchars(strip_tags($this->bs_x_hr));
 
@@ -175,6 +182,7 @@
             $stmt->bindParam(':epp', $this->epp);
             $stmt->bindParam(':cant', $this->cant);
             $stmt->bindParam(':transporte', $this->transporte);
+            $stmt->bindParam(':hrs_extra_mes', $this->hrs_extra_mes);
             $stmt->bindParam(':gasto_mensual_tot', $this->gasto_mensual_tot);
             $stmt->bindParam(':bs_x_hr', $this->bs_x_hr);
 
