@@ -8,6 +8,7 @@
 	<title></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="js/assets/css/admin/module.admin.page.tables.min.css" />
+	<link rel="stylesheet" href="js/assets/components/modules/admin/forms/elements/multiselect/assets/lib/css/multi-select.css" />
 
 	<!--[if lt IE 9]>
 	<!--<link rel="stylesheet" href="js/assets/components/library/bootstrap/css/bootstrap.min.css" />-->
@@ -47,9 +48,36 @@
 		</div>
 	</div>
 
+  <!-- Modal to Group APUs -->
+	<div class="modal fade" id="group-users-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Asignación de Usuarios a Proyecto</h4>
+				</div>
+				<div class="modal-body">
+					<div class="widget widget-inverse">
+						<div class="widget-head">
+							<h4 class="heading">Asignación de Usuarios</h4>
+						</div>
+						<div class="widget-body padding-bottom-none">
+							<select multiple id="proj-user-selection" class="multiselect" name="proj-user-selection[]">
+							</select>
+							<div class="separator top" style="padding-bottom: 15px;">							
+								<a href="" id="save-proj-user-assign" class="btn btn-primary">Guardar Asignación</a>
+							</div>
+						</div>
+					</div>
+				</div><!-- end modal-body -->
+			</div>
+		</div>
+	</div>
+
 	<!--Scripts Needed-->
 	<script>
-        $.getScript('js/modules/list-projects.js');
+    $.getScript( "js/assets/components/modules/admin/forms/elements/multiselect/assets/lib/js/jquery.multi-select.js?v=v1.2.3" );
+    $.getScript('js/modules/list-projects.js');
 	</script>
 </body>
 </html>

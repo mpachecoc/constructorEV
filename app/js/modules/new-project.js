@@ -2,6 +2,11 @@
  * New Project
  */
 
+// Vars
+// Get current Date
+const now = new Date();
+const mysqlDate = now.toISOString().slice(0, 10);
+
 // Once Page is Loaded
 $(document).ready(function(){
     
@@ -46,12 +51,26 @@ $(document).off('click', "#save-new-proj").on('click', "#save-new-proj", functio
             data: JSONData
         }).done(function(data) {
 
+            // Assign project to user
+            var JSONProjUser = {};
+            JSONProjUser['project_id'] = id;
+            JSONProjUser['user_id'] = userID;
+            JSONProjUser['assigned_date'] = mysqlDate;
+            JSONProjUser = JSON.stringify(JSONProjUser); 
+
+            saveInDB('project_user','POST','c',JSONProjUser);
+
+            // Success Message
             $.gritter.add({
                 title: '¡Exito!',
                 text: 'El Proyecto fue creado y será listado en sus proyectos.'
             });
+
             // Clear fields
             form.find("input[type=text], textarea").val("");
+
+            // Logout
+            $('#logout').click(); 
 
         }).fail(function (jqXHR) {
             console.log('Failed, status code: ' + jqXHR.status);

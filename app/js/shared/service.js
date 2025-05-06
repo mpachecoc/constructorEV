@@ -273,3 +273,38 @@ function patchInDB(dBtable,json) {
         console.log('Failed, status code: ' + jqXHR.status);
     });
 }
+
+// Ajax - GET All values from DB from a selected Project. 
+async function getAllBySelectedProj(dBtable,project_id,callback){
+  await $.ajax({
+      url: API_URL + '/' + dBtable + '/by_project/' + project_id,
+      type: "GET",
+      dataType: 'json'
+  }).done(function(data) {
+      callback(data);
+
+  }).fail(function (jqXHR) {
+      console.log('Failed, status code: ' + jqXHR.status);
+      callback(jqXHR.status);
+  });
+}
+
+// Ajax - DELETE data to DB
+function deleteInDB(dBtable,pathURL) {
+  $.ajax({
+      url: API_URL + '/' + dBtable + '/d/' + pathURL + '/',
+      type: "DELETE",
+      dataType: 'json'
+  }).done(function(data) {
+      $.gritter.add({
+          title: '¡Exito!',
+          text: 'Datos Eliminados Correctamente.'
+      });
+  }).fail(function (jqXHR) {
+      $.gritter.add({
+          title: '¡Error!',
+          text: 'Los datos no fueron correctamente eliminados.'
+      });
+      console.log('Failed, status code: ' + jqXHR.status);
+  });
+}

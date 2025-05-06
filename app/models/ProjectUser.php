@@ -46,6 +46,23 @@
 
             return $stmt;
         }
+        
+        /** GET by single Project */
+        public function read_by_project() {
+            // Create Query
+            $query = 'SELECT * FROM '.$this->table.' WHERE projID = ?';
+
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+
+            // Bind projectID
+            $stmt->bindParam(1, $this->project_id);
+
+            // Execute query
+            $stmt->execute();
+
+            return $stmt;
+        }
 
         /** CREATE a Project-User */
         public function create() {
